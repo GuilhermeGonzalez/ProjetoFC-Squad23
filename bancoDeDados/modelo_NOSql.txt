@@ -1,0 +1,29 @@
+Beneficiado {
+	id:number
+	nome: string
+	cidade: string
+	lista_materais: Array[{
+		id:number
+		...
+		material: Array[{
+			id:number
+			...
+		}]
+	}] 
+}
+
+Doador {
+	id:number
+	...
+	doções: Array[{
+		id:number
+		id_forma_pagamento: Array[{
+			id:number
+			cartao_credito: Object{}
+			pix: String
+			boleto: Object{}
+		}]
+		...
+		id-listaM:number
+	}]
+}
