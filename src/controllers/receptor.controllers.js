@@ -21,13 +21,13 @@ module.exports = {
         }
     },
     async details(req, res){
-        const { _id } = req.query;
+        const { _id } = req.params;
         const receptor = await Receptor.findOne({_id});
         res.json(receptor);
     },
     async delete(req, res){
-        const { _id } = req.query;
+        const { _id } = req.params;
         const receptor = await Receptor.findByIdAndDelete({_id});
-        res.json(receptor);
+        return res.json(receptor);
     }
 }
