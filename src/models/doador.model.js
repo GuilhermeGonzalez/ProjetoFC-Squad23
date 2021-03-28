@@ -14,8 +14,8 @@ const DataSchema = new mongoose.Schema({
             formato_escolhido:String,
             desc_geral: String, //Independente do formato escolhido será salvo as informações solicitadas para X forma
         }],
-        id_receptor: Number,//Qual o receptor referente a lista
-        id_listaM_doado: Number,//Qual a lista escolhida
+        id_receptor: String,//Qual o receptor referente a lista
+        id_listaM_doado: String,//Qual a lista escolhida
     }]
 }, {
     timestamp:true
