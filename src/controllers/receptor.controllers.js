@@ -1,8 +1,9 @@
 const Receptor = require('../models/receptor.model');
 
 module.exports = {
-    index(req, res){
-        res.json({message: 'Hello World from Controller Receptor'});
+    async index(req, res){
+        const receptor = await Receptor.find();
+        res.json(receptor);
     },
     async create(req,res){
         const {nome_rcpt, cidade_rcpt, uf_rcpt, email_rcpt, senha_rcpt, cpf_rcpt, nome_inst} = req.body;//Requisições que chegam do frontend
@@ -18,5 +19,15 @@ module.exports = {
         else {
             return res.status(500).json(receptor);
         }
+    },
+    async details(req, res){
+        const { _id } = req.query;
+        const receptor = await Receptor.findOne({_id});
+        res.json(receptor);
+    },
+    async delete(req, res){
+        const { _id } = req.query;
+        const receptor = await Receptor.findByIdAndDelete({_id});
+        res.json(receptor);
     }
 }
