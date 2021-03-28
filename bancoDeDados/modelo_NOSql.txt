@@ -1,29 +1,44 @@
-Beneficiado {
-	id:number
-	nome: string
-	cidade: string
-	lista_materais: Array[{
-		id:number
-		...
-		material: Array[{
-			id:number
-			...
-		}]
-	}] 
+Beneficiado nome_rcpt:String, 
+    cidade_rcpt:String,
+    uf_rcpt:String,
+    email_rcpt:String,
+    senha_rcpt:String,
+    cpf_rcpt:String, 
+    nome_inst:String,
+    lista_materiais: [{
+        status_listaM: Boolean,
+        valorTotal_listaM: Number,
+        valorAtual_listaM: Number,
+        descricao_listaM: String,
+        imagem_listaM: {data: Buffer, contentType: String},
+        dataCriacao_listaM: Date,
+        dataAtualizacao_listaM: Date,
+        material: [{
+            desc_material: String,
+            qtd_material: Number,
+            valor_unitario: Number, 
+        }]
+    }]
+}, {
+    timestamp:true
 }
 
-Doador {
-	id:number
-	...
-	doções: Array[{
-		id:number
-		id_forma_pagamento: Array[{
-			id:number
-			cartao_credito: Object{}
-			pix: String
-			boleto: Object{}
-		}]
-		...
-		id-listaM:number
-	}]
+Doador{
+    nome_doador:String, 
+    cpf_doador:String, 
+    email_doador:String,
+    dataNasc_doador: Date,
+    tel_doador: String,
+    doacao: Array[{
+        valor_doacao: Number,
+        mensagem_doacao: String,
+        forma_pagamento:[{
+            formato_escolhido:String,
+            desc_geral: String, //Independente do formato escolhido será salvo as informações solicitadas para X forma
+        }],
+        id_receptor: Number,//Qual o receptor referente a lista
+        id_listaM_doado: Number,//Qual a lista escolhida
+    }]
+}, {
+    timestamp:true
 }
