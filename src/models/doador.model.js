@@ -7,7 +7,7 @@ const DataSchema = new mongoose.Schema({
     email_doador:String,
     dataNasc_doador: Date,
     tel_doador: String,
-    doacao: Array[{
+    doacao: [{
         valor_doacao: Number,
         mensagem_doacao: String,
         forma_pagamento:[{
