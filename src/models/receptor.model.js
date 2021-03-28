@@ -36,5 +36,13 @@ DataSchema.pre('save', function(next){
     next();
 });
 
+DataSchema.pre('findOneAndUpdate', function(next){
+    var password = this.getUpdate().senha_rcpt+'';
+    if(password.length<55){
+        this.getUpdate().senha_rcpt = bcrypt.hashSync(password, 10);
+    }
+    next();
+})
+
 const receptor = mongoose.model('Receptor', DataSchema);
 module.exports = receptor;

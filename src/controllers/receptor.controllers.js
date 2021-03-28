@@ -29,5 +29,31 @@ module.exports = {
         const { _id } = req.params;
         const receptor = await Receptor.findByIdAndDelete({_id});
         return res.json(receptor);
+    },
+    async update(req, res){
+        const {
+            _id, 
+            nome_rcpt, 
+            cidade_rcpt,
+            uf_rcpt,
+            email_rcpt,
+            senha_rcpt,
+            cpf_rcpt,
+            nome_inst 
+        } = req.body;
+
+        const data = { 
+            nome_rcpt, 
+            cidade_rcpt,
+            uf_rcpt,
+            email_rcpt,
+            senha_rcpt,
+            cpf_rcpt,
+            nome_inst 
+        }
+
+        const receptor = await Receptor.findOneAndUpdate({_id},data, {new: true});
+
+        res.json(receptor);
     }
 }
