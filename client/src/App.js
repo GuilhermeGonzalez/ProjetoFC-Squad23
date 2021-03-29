@@ -1,15 +1,11 @@
 import React from 'react';
-import Inicio from './pages/client/painel';
 
-function App() {
-  return (
+import Routes from './routes';
+
+export default function App() {
+  return(
     <div className="App">
-      {/* <header className="App-header">
-       <h1>Hello FCamara!</h1>
-      </header> */}
-      <Inicio />
+      <Routes />
     </div>
   );
 }
-
-export default App;
