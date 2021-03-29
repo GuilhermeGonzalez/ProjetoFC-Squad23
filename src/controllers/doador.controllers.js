@@ -13,6 +13,7 @@ module.exports = {
                 email_doador, 
                 dataNasc_doador, 
                 tel_doador,
+                doacao
             } = req.body;
 
         let data = {
@@ -21,6 +22,7 @@ module.exports = {
             email_doador, 
             dataNasc_doador, 
             tel_doador,
+            doacao
         };
 
         let doador = await Doador.create(data);
