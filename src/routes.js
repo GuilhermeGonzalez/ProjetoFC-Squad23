@@ -18,6 +18,7 @@ routes.put('/api/receptor',Receptor.update);
 routes.post('/api/doador', Doador.create);
 routes.get('/api/doador', Doador.index);
 routes.get('/api/doador.details/:_id', Doador.details);
+//routes.get('/api/doador.details/:email_rcpt', Doador.detailEmail)
 routes.delete('/api/doador/:_id', Doador.delete);
 
 module.exports = routes;
