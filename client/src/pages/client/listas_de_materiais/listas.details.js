@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-export default function ListasMateriaisDetails() {
+export default function ListasMateriaisDoacaoDetails() {
   return (
     <div>
-      <h1>Detalhes das Listas</h1>
+      <h1>Tela da Lista X</h1>
     </div>
   );
 }
