@@ -1,0 +1,168 @@
+/*CONTENT*/
+
+.content {
+  padding: 0px 25px 0px;
+  width: 100vw;
+}
+
+/*PRINCIPAL CONTAINER*/
+
+.principal-infoContainer {
+  margin-top: 30px;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.principal-leftbox {
+  height: 190px;
+  width: 320px;
+}
+
+.principal-textBoxContainer {
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.principal-buttonBoxContainer {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+}
+.principal-buttonBoxContainer button:nth-child(1) {
+  margin-left: -1px;
+}
+
+.principal-buttonBoxContainer button:nth-child(2) {
+  background: var(--branco);
+  color: var(--corUm);
+  border: var(--corUm) 1px solid;
+}
+
+.principal-rigthbox img {
+  width: 350px;
+  height: 250px;
+}
+
+/*SECONDARY CONTAINER*/
+
+.secondary-infoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 40px;
+  padding: 0px 100px 0px;
+  height: 150px;
+  width: 100%;
+}
+
+.secondary-infoBox {
+  width: 30%;
+  height: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.secondary-imageBox img {
+  width: 55px;
+  height: 45px;
+}
+
+/*SEARCH CONTAINER*/
+
+.search-infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.search-titleBox {
+  margin-bottom: 40px;
+}
+.search-titleBox h1 {
+  font-weight: 600;
+}
+
+.search-filterBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+/*DISPLAY PART*/
+
+.search-cardReceptor {
+  background-color: var(--branco);
+  margin-bottom: 60px;
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 5px 3px #ccc;
+
+  padding: 30px;
+}
+
+.search-cardReceptor > p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.search-infoReceptor {
+  display: flex;
+  align-items: center;
+  flex-direction: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  height: 120px;
+}
+
+.search-infoReceptor img {
+  border-radius: 50%;
+  height: 80px;
+  width: auto;
+}
+
+.search-infoReceptor .info {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.search-porcentContainer {
+  display: flex;
+  flex-direction: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  align-items: center;
+  height: 50px;
+}
+
+.search-porcentContainer p {
+  font-weight: 800;
+}
+
+.porcentageBar {
+  width: 250px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: #e5e5e5;
+}
+
+.concludedBar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: var(--corUm);
+}
