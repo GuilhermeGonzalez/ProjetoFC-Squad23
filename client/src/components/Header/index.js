@@ -1,9 +1,11 @@
-import React from 'react';
-import imagemAuxiliar from '.././../assets/caixaVazia.png'
+import React, { useContext } from 'react';
+import imagemAuxiliar from '.././../assets/caixaVazia.png';
+import LoginModal from '../LoginModal';
+import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
 
 export default function Header() {
-
+    let { handleModal } = useContext(ModalContext);
     return (
         <div className="header-container">
             <div>
@@ -12,7 +14,7 @@ export default function Header() {
             </div>
             <div>
                 <a href="/cadastro">Cadastre-se</a>
-                <button>Login</button>
+                <button onClick={() => handleModal(<LoginModal />)}>Login</button>
             </div>
         </div>
     );
