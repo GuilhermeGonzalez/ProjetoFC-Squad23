@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -34,10 +34,10 @@ export default function CadastroReceptor() {
   const [nome_inst, setNomeInst] = useState('');
   const [lista_materiais, setListaMateriais] = useState([]);
 
-  async function handleSubmit(){
+  async function handleSubmit() {
 
-    const data = { 
-      nome_rcpt, 
+    const data = {
+      nome_rcpt,
       cidade_rcpt,
       uf_rcpt,
       email_rcpt,
@@ -46,28 +46,27 @@ export default function CadastroReceptor() {
       nome_inst,
       lista_materiais
     }
-    if(nome_rcpt !== '' && cidade_rcpt !== '' && uf_rcpt !== '' && email_rcpt !== '' && senha_rcpt !== '' && cpf_rcpt !== '' && nome_inst !== '')
-    {
+    if (nome_rcpt !== '' && cidade_rcpt !== '' && uf_rcpt !== '' && email_rcpt !== '' && senha_rcpt !== '' && cpf_rcpt !== '' && nome_inst !== '') {
       const response = await api.post('/api/receptor', data);
 
-      if(response.status === 200){
-        window.location.href='/login'
+      if (response.status === 200) {
+        window.location.href = '/'
       }
-      else{
+      else {
         alert('Erro ao cadastrar o usuário!')
       }
     }
-    else{
+    else {
       alert('Por favor, preencha todos os dados!');
     }
-    
+
   }
 
   return (
     <div>
       <h2>Cadastro</h2>
       <Grid container spacing={3}>
-        
+
         <Grid item xs={12} sm={12}>
           <TextField
             required
@@ -97,7 +96,7 @@ export default function CadastroReceptor() {
           </FormControl>
         </Grid>
         <Grid item xs={12} sm={4}>
-        <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl}>
             <InputLabel id="labelUf">UF</InputLabel>
             <Select
               labelId="labelUf"
