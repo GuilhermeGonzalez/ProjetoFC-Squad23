@@ -3,9 +3,16 @@ import { ModalContext } from "../../hooks/useModal/modalContext";
 
 import './style.css';
 import Fechar from '../../assets/close.png';
+import CadastroModal from '../CadastroModal';
 
 export default function LoginModal() {
     let { handleModal } = useContext(ModalContext);
+
+    function changeModal() {
+        handleModal();
+        handleModal(<CadastroModal />);
+    }
+
     return (
         <>
             <div id="modal" className="modal-overlayLogin active">
@@ -24,7 +31,7 @@ export default function LoginModal() {
                             <button>Entrar</button>
                         </form>
 
-                        <p>Ainda não tem uma conta? <a href="/cadastro">Cadastra-se</a></p>
+                        <p>Ainda não tem uma conta? <a onClick={changeModal}>Cadastra-se</a></p>
                     </div>
                 </div>
             </div>
