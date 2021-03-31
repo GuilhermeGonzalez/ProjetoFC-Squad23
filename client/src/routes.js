@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 //imports admin
-import ListasMateriais from './pages/admin/listas_de_materiais';
+import ListaMateriais from './pages/admin/listaMateriais';
 import Receptor from './pages/admin/receptor';
 
 //imports client
@@ -32,7 +32,7 @@ export default function Routes() {
                 <Route path="/cadastro" exact component={Cadastro} />{/* Tela do cadastro do receptor */}
 
                 {/*Rota Admin = Telas em que o receptor terá controle*/}
-                <Route path="/login/:idReceptor/admin/listasMateriais" exact component={ListasMateriais} /> {/* Tela das listas do receptor */}
+                <Route path="/login/:idReceptor/admin/listaMateriais" exact component={ListaMateriais} /> {/* Tela das listas do receptor */}
 
                 <Route path="/login/:idReceptor/admin/receptor" exact component={Receptor} /> {/* Tela perfil */}
 
