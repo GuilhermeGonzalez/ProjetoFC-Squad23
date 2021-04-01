@@ -3,6 +3,7 @@
   --corUm: #7b7a7a;
   --corDois: #969696;
   --corTres: #c4c4c4;
+  --corQuatro: #12af9a;
 
   /*FUNDO*/
   --fundo: #fdfcfc;
@@ -32,7 +33,7 @@ select {
 }
 
 button {
-  background: var(--corUm);
+  background: var(--corQuatro);
   color: var(--branco);
   cursor: pointer;
 
