@@ -13,13 +13,8 @@ const DataSchema = new mongoose.Schema({
     data_nasc_rcpt: Date,
     imagem_rcpt: { data: Buffer, contentType: String },
     tipo_rcpt: String,
-    info_tipo: {
-        nome_estudante: String,
-        data_nasc_estudante: Date,
-        cpf_estudante: String,
-        nivel: String,
-        instituicao: String
-    },
+    nivel_rcpt: String,
+    instituicao_rcpt: String,
     dados_bancarios_rcpt: {
         banco: String,
         agencia: Number,
