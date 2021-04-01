@@ -7,6 +7,11 @@ import './style.css';
 import CirculoVazio from '../.././../assets/circuloVazio.png';
 import CaixaVazia from '../.././../assets/caixaVazia.png';
 import CaixaGrandeVazia from '../.././../assets/caixaGrandeVazia.png';
+import BooksHomeImage from '../.././../assets/booksHome.png'
+
+import CoinImage from '../.././../assets/coin.png'
+import HeartImage from '../.././../assets/heart.png'
+import FolhaImage from '../.././../assets/folha.png'
 
 export default function Home() {
   return (
@@ -30,14 +35,14 @@ export default function Home() {
             </div>
           </div>
           <div className="principal-rigthbox">
-            <img src={CaixaGrandeVazia} alt="imagem" />
+            <img src={BooksHomeImage} alt="imagem" />
           </div>
         </div>
 
         <div className="secondary-infoContainer">
           <div className="secondary-infoBox">
             <div className="secondary-imageBox">
-              <img src={CaixaVazia} alt="imagem" />
+              <img src={FolhaImage} alt="imagem" />
             </div>
             <p>Cadastre sua lista de material
   escolar ou universitário</p>
@@ -45,7 +50,7 @@ export default function Home() {
 
           <div className="secondary-infoBox">
             <div className="secondary-imageBox">
-              <img src={CaixaVazia} alt="imagem" />
+              <img src={CoinImage} alt="imagem" />
             </div>
             <p>Estipule um valor para um financiamento
   coletivo (vaquinha) da sua lista</p>
@@ -53,7 +58,7 @@ export default function Home() {
 
           <div className="secondary-infoBox">
             <div className="secondary-imageBox">
-              <img src={CaixaVazia} alt="imagem" />
+              <img src={HeartImage} alt="imagem" />
             </div>
             <p>Ajude estudantes e professores
             conhecendo a sua história, e com

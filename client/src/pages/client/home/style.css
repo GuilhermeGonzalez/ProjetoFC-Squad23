@@ -38,13 +38,13 @@
 
 .principal-buttonBoxContainer button:nth-child(2) {
   background: var(--branco);
-  color: var(--corUm);
-  border: var(--corUm) 1px solid;
+  color: var(--corQuatro);
+  border: var(--corQuatro) 2px solid;
 }
 
 .principal-rigthbox img {
-  width: 350px;
-  height: 250px;
+  width: 400px;
+  height: 300px;
 }
 
 /*SECONDARY CONTAINER*/
@@ -82,6 +82,7 @@
 }
 
 .search-titleBox {
+  color: var(--corQuatro);
   margin-bottom: 40px;
 }
 .search-titleBox h1 {
@@ -112,8 +113,9 @@
 }
 
 .search-cardReceptor > p {
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: var(--corQuatro);
+  font-size: 1rem;
+  font-weight: 800;
   margin-bottom: 5px;
 }
 
@@ -148,6 +150,7 @@
 }
 
 .search-porcentContainer p {
+  color: var(--corQuatro);
   font-weight: 800;
 }
 
@@ -164,7 +167,5 @@
   width: 150px;
   height: 25px;
   border-radius: 15px;
-  background-color: var(--corUm);
+  background-color: var(--corQuatro);
 }
-
-
