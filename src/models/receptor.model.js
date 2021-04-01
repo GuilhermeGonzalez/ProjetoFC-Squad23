@@ -3,42 +3,52 @@ const bcrypt = require('bcrypt');
 
 
 const DataSchema = new mongoose.Schema({
-    nome_rcpt:String, 
-    cidade_rcpt:String,
-    uf_rcpt:String,
-    email_rcpt:String,
-    senha_rcpt:String,
-    cpf_rcpt:String, 
-    nome_inst:String,
-    lista_materiais: [{
-        status_listaM: Boolean,
-        valorTotal_listaM: Number,
-        valorAtual_listaM: Number,
-        descricao_listaM: String,
-        imagem_listaM: {data: Buffer, contentType: String},
-        dataCriacao_listaM: Date,
-        dataAtualizacao_listaM: Date,
+    nome_rcpt: String,
+    cidade_rcpt: String,
+    uf_rcpt: String,
+    email_rcpt: String,
+    senha_rcpt: String,
+    cpf_rcpt: String,
+    historia_rcpt: String,
+    data_nasc_rcpt: Date,
+    imagem_rcpt: { data: Buffer, contentType: String },
+    tipo_rcpt: String,
+    info_tipo: {
+        nome_estudante: String,
+        data_nasc_estudante: Date,
+        cpf_estudante: String,
+        nivel: String,
+        instituicao: String
+    },
+    dados_bancarios_rcpt: {
+        banco: String,
+        agencia: Number,
+        conta_corrente: String,
+    },
+    lista_materiais: {
+        status: Boolean,
+        meta: Number,
+        valorArrecadado: Number,
         material: [{
             desc_material: String,
             qtd_material: Number,
-            valor_unitario: Number, 
         }]
-    }]
+    }
 }, {
-    timestamp:true
+    timestamp: true
 });
 
-DataSchema.pre('save', function(next){
-    if(!this.isModified("senha_rcpt")){
+DataSchema.pre('save', function (next) {
+    if (!this.isModified("senha_rcpt")) {
         return next();
     }
     this.senha_rcpt = bcrypt.hashSync(this.senha_rcpt, 10);
     next();
 });
 
-DataSchema.pre('findOneAndUpdate', function(next){
-    var password = this.getUpdate().senha_rcpt+'';
-    if(password.length<55){
+DataSchema.pre('findOneAndUpdate', function (next) {
+    var password = this.getUpdate().senha_rcpt + '';
+    if (password.length < 55) {
         this.getUpdate().senha_rcpt = bcrypt.hashSync(password, 10);
     }
     next();
