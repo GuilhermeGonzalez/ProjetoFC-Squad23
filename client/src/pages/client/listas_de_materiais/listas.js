@@ -53,8 +53,14 @@ export default function ListasMateriaisDoacao() {
            <h3> Meta:  R$  XXX </h3>  
             </div>
 
-<button>Contribuir</button>
-                
+            <div className="search-porcentContainer">
+                <p>X %</p>
+                <div className="porcentageBar">
+                  <div className="concludedBar"></div>
+                </div>
+              </div>                
+
+              <button>Contribuir</button>
 
         </div>
       

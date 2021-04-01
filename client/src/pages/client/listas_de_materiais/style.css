@@ -118,6 +118,12 @@ align-items: center;
     margin-left: 43px;
     margin-top: 45px;
 }
+
+
+.box_4 button{
+  margin-top: 40px;
+  margin: 0 auto;
+}
  
   #circulo {
     width: 100px;
@@ -126,3 +132,28 @@ align-items: center;
     margin: 50px;
     border-radius: 50%;
     }
+
+
+    .search-porcentContainer p {
+      font-weight: 800;
+      padding-left: 30px;
+     
+    }
+    
+    .porcentageBar {
+      width: 250px;
+      height: 25px;
+      border-radius: 15px;
+      background-color: #e5e5e5;
+      margin: 0 auto;
+    }
+    
+    .concludedBar {
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 25px;
+      border-radius: 15px;
+      background-color: var(--corUm);
+    }
+    
