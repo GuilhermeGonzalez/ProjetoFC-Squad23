@@ -1,0 +1,182 @@
+.contentPageDoacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerPage {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.headerPage .titleDoacao {
+  width: 55%;
+}
+
+.headerPage .voltarInicio {
+  text-align: right;
+  margin-right: 50px;
+  width: 45%;
+}
+
+.headerPage h2 {
+  text-align: right;
+}
+
+.contentDoacao {
+  background-image: var(--branco);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  padding: 40px 20px;
+
+  width: 68vw;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.contentLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentLeft .cardLeft {
+  background-image: var(--branco);
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 30vw;
+  height: 210px;
+  margin-bottom: 30px;
+
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.cardLeft .infoCardDoacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cardLeft .infoCardDoacao .infoReceptorDoacao {
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+.cardLeft .infoCardDoacao .infoReceptorDoacao p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cardLeft .historiaDoacao {
+  font-size: 0.9rem;
+}
+
+.cardLeft ul {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.cardLeft ul li {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 3px;
+}
+
+.cardLeft ul li strong {
+  font-size: 1rem;
+}
+
+.cardLeft ul li p {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.contentRight {
+  display: flex;
+  justify-content: center;
+}
+
+.contentRight .cardRight {
+  background-image: var(--branco);
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 30vw;
+  height: 42%;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+/*PARTE DA VAQUINHA*/
+.textoMeioVaquinhaDoacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.textoMeioVaquinhaDoacao p:first-child {
+  width: 56%;
+}
+
+.textoMeioVaquinhaDoacao p:nth-child(2) {
+  font-weight: 800;
+}
+
+.textoMeioVaquinhaDoacao p {
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.vaquinhaDoacaoPorcentage {
+  display: flex;
+  flex-direction: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  align-items: center;
+  height: 50px;
+}
+
+.vaquinhaDoacaoPorcentage p {
+  font-weight: 800;
+}
+
+.vaquinhaDoacaoPorcentageBar {
+  width: 230px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: #e5e5e5;
+}
+
+.vaquinhaDoacaoConcludedBar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: var(--corUm);
+}
+
+.botaoContribuir {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
