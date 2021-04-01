@@ -7,7 +7,7 @@
 
 .headerPage {
   margin-top: 30px;
-
+  color: var(--corQuatro);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -136,6 +136,7 @@
 }
 
 .textoMeioVaquinhaDoacao p:nth-child(2) {
+  color: var(--corQuatro);
   font-weight: 800;
 }
 
@@ -154,6 +155,7 @@
 }
 
 .vaquinhaDoacaoPorcentage p {
+  color: var(--corQuatro);
   font-weight: 800;
 }
 
@@ -170,7 +172,7 @@
   width: 150px;
   height: 25px;
   border-radius: 15px;
-  background-color: var(--corUm);
+  background-color: var(--corQuatro);
 }
 
 .botaoContribuir {
