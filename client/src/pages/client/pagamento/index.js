@@ -1,54 +1,154 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import api from '../../../services/api'
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import "./style.css";
 
+import CartaoImage from '../../../assets/cartao.png';
+import PixImage from '../../../assets/pix.png';
+
+import BoletoPDF from '../../../assets/boleto.pdf';
+
 export default function ListasMateriaisDoacao() {
+  const { idReceptor } = useParams();
+
+  const [receptorConectado, setReceptorConectado] = useState({});
+  const [nome, setNome] = useState("");
+
+  const boleto = `
+    <div id="centerInfo"> 
+      <a href=${BoletoPDF} download="boleto"> 
+        <button>Gerar boleto</button>
+      </a>
+    </div>
+  `;
+
+  const cartaoDeCredito = `
+    <div id="cartaoContent">
+      <div id="cartaoContentLeft">
+        <div className="lineContentCartao">
+          <label>Numero do Cartão:</label>
+          <input className="inputField" type="text" placeholder="Digite o número do seu cartão." />
+        </div>
+        <div className="lineContentCartao">
+          <label>Nome do titular:</label>
+          <input className="inputField" type="text" placeholder="Digite o nome do titular do cartão." />
+        </div>
+        <div id="ultimaLinhaCartaoInfo">
+          <div className="lineContent">
+            <label>Validade:</label>
+            <input className="inputField" type="text" placeholder="00/0000" />
+          </div>
+          <div className="lineContent">
+            <label>CVV:</label>
+            <input className="inputField" type="text" placeholder="000" />
+          </div>
+        </div>
+      </div>
+
+      <div className="cartaoContentRight">
+        <img src=${CartaoImage} alt="imagem do cartao"/>
+      </div>
+    </div>`
+
+  const pix = ` 
+    <div id="centerInfo">
+      <img src=${PixImage} alt='qr code pix' /> 
+    </div>
+  `
+
+
+
+
+  function logout() {
+    window.location.href = "/"
+  }
+
+  useEffect(() => {
+    async function findAndGenerateRows() {
+      const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
+      await setReceptorConectado(receptor);
+      await setNome(receptor.nome_rcpt);
+    }
+    findAndGenerateRows();
+  }, [])
+
+  function trocaPagamento() {
+    const opcao = document.querySelector('input[name="pag"]:checked').value;
+    if (opcao == 'boleto') {
+      document.getElementById("formaPagamentoSelecionada").innerHTML = boleto;
+    }
+    else if (opcao == 'pix') {
+      document.getElementById("formaPagamentoSelecionada").innerHTML = pix;
+    }
+    else if (opcao == 'cartaoDeCredito') {
+      document.getElementById("formaPagamentoSelecionada").innerHTML = cartaoDeCredito;
+    }
+    else {
+      document.getElementById("formaPagamentoSelecionada").innerHTML = " ";
+    }
+  }
+
+
   return (
     <>
       <Header />
 
-      <section className="container">
-        <div className="header_top">
-          <div className="header_tistle">
-            <h1>Doação em dinheiro</h1>
-            <h2>Ambiente de pagamento</h2>
+      <div className="contentPagePagamento">
+        <div className="headerPage">
+          <div className="titlePagamento">
+            <h2>Doação em dinheiro</h2>
           </div>
-          <button>Voltar ao Início</button>
+          <div className="voltarInicio">
+            <button onClick={logout}>Voltar ao inicio</button>
+          </div>
         </div>
-      </section>
+        <h3>Ambiente de Pagamento</h3>
+        <div className="cardContentPagamento">
+          <div className="titleContentPagamento">
+            <h3>Doação para {nome}</h3>
+          </div>
+          <div className="contentPagamento">
+            <div className="lineContent">
+              <label>Valor da contribuição:</label>
+              <input className="inputField" type="number" placeholder="Digite o valor da sua contribuição em reais." />
+            </div>
+            <div className="anonimoOuNao">
+              <div className="lineContent">
+                <label>Nome completo:</label>
+                <input className="inputField" type="text" placeholder="Digite seu nome completo." />
+              </div>
+              <div className="anonimoContent">
+                <input type="radio" className="checkbox" name="anonimo" value="Anonimo" />
+                <label for="anonimo">Quero permanecer anônimo</label>
+              </div>
+            </div>
+            <div id=" emailContent" className="lineContent">
+              <label>E-mail:</label>
+              <input className="inputField" type="email" placeholder="Digite seu e-mail." />
+            </div>
+            <div className="meioPagamento">
+              <p>Meio de pagamento: </p>
+              <input onChange={trocaPagamento} type="radio" id="cartaoDeCredito" name="pag" value="cartaoDeCredito" />
+              <label for="cartaoDeCredito">Cartão de crédito</label>
+              <input onChange={trocaPagamento} type="radio" id="boleto" name="pag" value="boleto" />
+              <label for="boleto">Boleto</label>
+              <input onChange={trocaPagamento} type="radio" id="pix" name="pag" value="pix" />
+              <label for="pix">Pix</label>
+            </div>
 
-      <div className="container_menor">
-        <div className="container_title">
-          <h1> Doação para Maria José</h1>
+            <div id="formaPagamentoSelecionada">
+
+            </div>
+
+            <div className="contribuirPagamento">
+              <button>Contribuir</button>
+            </div>
+          </div>
+
         </div>
-
-        <div className="input_1">
-          <label for="valor" className="">
-            Valor da Contribuição
-          </label>
-          <input id="valor" type="text"></input>
-        </div>
-
-        <div className="input_2">
-          
-          <div>
-            <label for="nome">Nome Completo</label>
-            <input id="nome" type="text" placeholder="Digite seu nome"></input>
-          </div> 
-
-<div class="medico">
-  <label for="a">Desejo me manter anônimo</label>
-  <input  id="a" type="radio"></input>
-</div>
-
-
-        </div>
-
-        
       </div>
-
-      <div className="margin_conteiner"></div>
 
       <Footer />
     </>

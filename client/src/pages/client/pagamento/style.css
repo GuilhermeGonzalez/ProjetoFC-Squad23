@@ -1,70 +1,166 @@
-.header_top {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 6em;
-  }
-  
-  .header_top h1 {
-    margin-right: 12em;
-  }
-  
-  .header_top button {
-    margin-right: 2em;
-  }
-  
-  .container_menor {
-    box-shadow: 7px 7px 9px rgba(0, 0, 0, 0.25),
-      -7px -7px 9px rgba(123, 122, 122, 0.25);
-    border-radius: 10px;
-    width: 1100px;
-    height: 1200px;
-    margin: 0 auto;
-    margin-top: 4em;
-  }
-  
-  .margin_conteiner {
-    margin-bottom: 7em;
-  }
-  
-  .container_menor {
-    display: flex;
-    flex-direction: column;
-  }
-  
- .container_title {
-     margin: 0 auto;
-     margin-top: 4em;
- }
- 
- .header_tistle{
-     flex-direction: column;
- }
-
- .header_tistle h2{
-    margin: 0 auto;
-    padding-left: 20px;
+.contentPagePagamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contentPagePagamento h3 {
+  font-weight: 400;
 }
 
-.input_1{
+.headerPage {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.headerPage .titlePagamento {
+  width: 62%;
+}
+
+.headerPage .voltarInicio {
+  text-align: right;
+  margin-right: 50px;
+  width: 38%;
+}
+
+.headerPage h2 {
+  text-align: right;
+}
+
+.cardContentPagamento {
+  background-image: var(--branco);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+
+  width: 68vw;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.cardContentPagamento .titleContentPagamento {
+  margin-bottom: 30px;
+}
+
+.titleContentPagamento h3 {
+  font-weight: 600;
+}
+
+.cardContentPagamento input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+/*INPUTS*/
+
+.contentPagamento {
+  width: 100%;
+}
+.contentPagamento .inputField {
+  margin-top: 10px;
+}
+
+.contentPagamento label {
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.lineContent {
   display: flex;
   flex-direction: column;
 }
 
-.input_2 {
-  display: flex;
-  
+.contentPagamento input[type="email"] {
+  width: 28%;
 }
 
-.input_2 div {
+.anonimoOuNao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contentPagamento > .lineContent:first-of-type input {
+  width: 80%;
+}
+
+.anonimoOuNao > .lineContent:first-of-type input[type="text"] {
+  width: 140%;
+}
+
+.anonimoOuNao > .anonimoContent {
+  margin-bottom: -20px;
+}
+.anonimoOuNao > .anonimoContent input[type="radio"] {
+  margin-left: 100px;
+}
+
+.meioPagamento {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+.meioPagamento p {
+  margin-top: -5px;
+}
+
+.meioPagamento input[type="radio"] {
+}
+
+.contribuirPagamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#centerInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#formaPagamentoSelecionada #cartaoContent {
+  display: flex;
+  flex-direction: row;
+}
+
+#cartaoContentLeft {
+  width: 50%;
+}
+
+#cartaoContentLeft .lineContent {
   display: flex;
   flex-direction: column;
 }
 
-
-.input_2 #nome{
-  padding:1em 23em;
+.cartaoContentRight {
+  width: 50%;
 }
 
-.inout_2 .medico{
+#cartaoContentLeft #ultimaLinhaCartaoInfo {
   display: flex;
+  flex-direction: row;
+}
+
+.lineContentCartao {
+  display: flex;
+  flex-direction: column;
 }
