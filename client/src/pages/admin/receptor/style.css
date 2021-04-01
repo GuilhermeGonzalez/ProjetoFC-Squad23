@@ -6,6 +6,7 @@
 }
 
 .contentPagePerfil h2 {
+  color: var(--corQuatro);
   margin-top: 30px;
   font-size: 2.2rem;
 }
