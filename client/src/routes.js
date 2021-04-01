@@ -9,8 +9,7 @@ import Receptor from './pages/admin/receptor';
 
 //imports client
 import Home from './pages/client/home';
-import ListasMateriaisDoacao from './pages/client/listas_de_materiais/listas';
-import ListasMateriaisDoacaoDetails from './pages/client/listas_de_materiais/listas.details';
+import Doacao from './pages/client/doacao';
 import Pagamento from './pages/client/pagamento';
 
 
@@ -24,9 +23,8 @@ export default function Routes() {
             <Switch>
                 {/*Rota Cliente*/}
                 <Route path="/" exact component={Home} /> {/* Tela inicial */}
-                <Route path="/listasMateriaisDoacao" exact component={ListasMateriaisDoacao} /> {/* Tela das listas disponiveis*/}
-                <Route path="/listasMateriaisDoacao/:idLista" exact component={ListasMateriaisDoacaoDetails} /> {/* Tela da lista X*/}
-                <Route path="/listasMateriaisDoacao/:idLista/pagamento" exact component={Pagamento} /> {/* Tela de pagamento lista X*/}
+                <Route path="/Doacao/:idReceptor" exact component={Doacao} /> {/* Tela das listas disponiveis*/}
+                <Route path="/Doacao/:idReceptor/pagamento" exact component={Pagamento} /> {/* Tela de pagamento lista X*/}
 
 
                 {/* Rota de Cadastro */}
