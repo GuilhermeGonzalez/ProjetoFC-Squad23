@@ -50,7 +50,7 @@ button {
 }
 
 .headerLog-container .clicked {
-  border-bottom: 2px var(--corUm) solid;
-  color: var(--corUm);
+  border-bottom: 2px var(--corQuatro) solid;
+  color: var(--corQuatro);
   font-weight: 600;
 }

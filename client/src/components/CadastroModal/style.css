@@ -60,6 +60,10 @@
   width: 50vw;
 }
 
+.formCadastro h2 {
+  color: var(--corQuatro);
+}
+
 .formCadastro form {
   margin-top: 40px;
   display: flex;
@@ -128,6 +132,6 @@ input {
 
 .formButtons button:nth-child(2) {
   background: var(--branco);
-  color: var(--corUm);
-  border: 1px solid var(--corUm);
+  color: var(--corQuatro);
+  border: 1px solid var(--corQuatro);
 }

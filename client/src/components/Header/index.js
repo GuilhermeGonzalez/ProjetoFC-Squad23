@@ -5,12 +5,14 @@ import CadastroModal from '../CadastroModal';
 import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
 
+import Logo from '../../assets/logo.png';
+
 export default function Header() {
     let { handleModal } = useContext(ModalContext);
     return (
         <div className="header-container">
             <div>
-                <img src={imagemAuxiliar} alt="Logo" />
+                <img src={Logo} alt="Logo" />
                 <p>Logo</p>
             </div>
             <div>

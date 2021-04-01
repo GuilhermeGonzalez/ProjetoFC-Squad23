@@ -59,6 +59,10 @@
   width: 500px;
 }
 
+.formLogin h2 {
+  color: var(--corQuatro);
+}
+
 .formLogin form {
   margin-top: 60px;
   display: flex;
@@ -86,6 +90,7 @@
 
 .formLogin p a {
   text-decoration: none;
-  color: var(--corUm);
+  color: var(--corQuatro);
   font-weight: 600;
+  cursor: pointer;
 }

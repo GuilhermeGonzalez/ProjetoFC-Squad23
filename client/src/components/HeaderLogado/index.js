@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
 
+import Logo from '../../assets/logo.png';
+
 export default function Header() {
     let { handleModal } = useContext(ModalContext);
     const { idReceptor } = useParams();
@@ -20,7 +22,7 @@ export default function Header() {
     return (
         <div className="headerLog-container">
             <div>
-                <img src={imagemAuxiliar} alt="Logo" />
+                <img src={Logo} alt="Logo" />
                 <p>Logo</p>
             </div>
             <div>
