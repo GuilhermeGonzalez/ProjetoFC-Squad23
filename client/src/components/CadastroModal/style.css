@@ -38,7 +38,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-top: -20px;
 }
+.closeModalCadastro img {
+  width: 35px;
+  height: 35px;
+}
+
 .closeModalCadastro img:hover {
   cursor: pointer;
 }
@@ -48,8 +54,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  height: 620px;
+  margin-top: 25px;
+  height: 605px;
   width: 50vw;
 }
 
