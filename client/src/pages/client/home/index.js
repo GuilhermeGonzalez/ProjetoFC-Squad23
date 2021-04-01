@@ -67,9 +67,29 @@ export default function Home() {
             <h1>Buscar doações</h1>
           </div>
           <div className="search-filterBox">
-            <input placeholder="Filtro" />
-            <input placeholder="Filtro" />
-            <input placeholder="Filtro" />
+            <select onChange="" name="tipo" id="tipo">
+              <option value="" disabled selected hidden>Tipo de usuário</option>
+              <option value={"Professor(a)"}>Professor(a)</option>
+              <option value={"Pais ou responsáveis"}>Pais ou responsáveis</option>
+              <option value={"Estudante Universitário"}>Estudante Universitário</option>
+              <option value={"Estudante Curso Preparatório"}>Estudante Curso Preparatório</option>
+            </select>
+
+            <select name="uf">
+              <option value="" disabled selected hidden>Região</option>
+              <option value="BH">Bahia</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="SP">São Paulo</option>
+            </select>
+
+            <select name="valor">
+              <option value="" disabled selected hidden>Valor máximo</option>
+              <option value={250}>Até R$250,00</option>
+              <option value={500}>Até R$500,00</option>
+              <option value={750}>Até R$750,00</option>
+              <option value={1000}>Até R$1000,00</option>
+              <option value={1001}>Maior que R$1000,00</option>
+            </select>
           </div>
 
           <div className="search-displayBox">
