@@ -13,7 +13,7 @@ export default function Header() {
         <div className="header-container">
             <div>
                 <img src={Logo} alt="Logo" />
-                <p>Logo</p>
+                <p>Donate It!</p>
             </div>
             <div>
                 <a onClick={() => handleModal(<CadastroModal />)}>Cadastre-se</a>

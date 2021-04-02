@@ -23,7 +23,7 @@ export default function Header() {
         <div className="headerLog-container">
             <div>
                 <img src={Logo} alt="Logo" />
-                <p>Logo</p>
+                <p>Donate It!</p>
             </div>
             <div>
                 <a href={`/login/${idReceptor}/admin/listaMateriais`} id="listaMateriais" className={clickedLista}>Lista de Materiais</a>
