@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import HeaderLogado from '../../../components/HeaderLogado';
 import Footer from '../../../components/Footer';
-
+import { ModalContext } from "../../../hooks/useModal/modalContext";
+import IconesPerfilModal from '../../../components/IconesPerfilModal';
 import circuloVazio from '../../../assets/circuloVazio.png';
 import pencilImage from '../../../assets/pencil.png';
 import api from '../../../services/api'
@@ -10,6 +11,7 @@ import api from '../../../services/api'
 import './style.css'
 
 export default function ReceptorListagem() {
+  let { handleModal } = useContext(ModalContext);
   const { idReceptor } = useParams();
   const [receptorConectado, setReceptorConectado] = useState({});
   const [instituicao, setInstituicao] = useState("");
@@ -56,7 +58,7 @@ export default function ReceptorListagem() {
                 <img src={circuloVazio} alt="foto perfil" />
                 <div className="editarPerfil">
                   <img src={pencilImage} alt="imagem editar" />
-                  <p>Editar</p>
+                  <p onClick={() => handleModal(<IconesPerfilModal />)}>Editar</p>
                 </div>
               </div>
               <div className="infoReceptor">
