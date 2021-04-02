@@ -1,0 +1,112 @@
+/*MODAL*/
+
+.modal-overlayIconesPerfil {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
+}
+.modal-overlayIconesPerfil.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalIconesPerfil {
+  background: var(--branco);
+  padding: 2.4rem;
+  color: var(--corUm);
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 5px 3px #ccc;
+}
+.modalIconesPerfil .closeModalIconesPerfil {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -20px;
+}
+.closeModalIconesPerfil img {
+  width: 35px;
+  height: 35px;
+}
+
+.closeModalIconesPerfil img:hover {
+  cursor: pointer;
+}
+
+.formIconesPerfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 380px;
+  width: 400px;
+}
+
+.formIconesPerfil h2 {
+  color: var(--corQuatro);
+}
+
+.formIconesPerfil form {
+  margin-top: 60px;
+  display: flex;
+  height: 380px;
+  width: 300px;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.formIconesPerfil form input {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.formIconesPerfil form label {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.formIconesPerfil p a {
+  text-decoration: none;
+  color: var(--corQuatro);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.formIconesPerfil .iconsBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 20px;
+}
+
+.formIconesPerfil .botaoSalvar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 60px;
+  width: 120%;
+}
+
+.formIconesPerfil .botaoSalvar button {
+  height: 35px;
+  width: 100px;
+}
