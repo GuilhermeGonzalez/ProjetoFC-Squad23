@@ -1,0 +1,56 @@
+.headerLog-container {
+  width: 100vw;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px 0px;
+  background: var(--branco);
+}
+
+.headerLog-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 180px;
+}
+.headerLog-container div img {
+  width: 40px;
+  height: 40px;
+}
+
+.headerLog-container div p,
+button {
+  margin-left: 15px;
+}
+
+.headerLog-container p {
+  font-weight: 800;
+}
+
+.headerLog-container a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--corUm);
+}
+
+.headerLog-container div:nth-child(2) {
+  justify-content: space-between;
+}
+
+.headerLog-container button {
+  width: 100px;
+  font-size: 1.1rem;
+}
+
+.headerLog-container #perfil {
+  margin-right: -60px;
+}
+
+.headerLog-container .clicked {
+  border-bottom: 2px var(--corQuatro) solid;
+  color: var(--corQuatro);
+  font-weight: 600;
+}

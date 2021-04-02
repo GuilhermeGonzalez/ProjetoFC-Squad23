@@ -1,0 +1,140 @@
+.contentPagePerfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentPagePerfil h2 {
+  color: var(--corQuatro);
+  margin-top: 30px;
+  font-size: 2.2rem;
+}
+
+.contentPerfil h2 {
+  margin-top: 30px;
+  font-size: 2rem;
+}
+
+.contentPerfil {
+  background-image: var(--branco);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  width: 80vw;
+  height: 900px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.cardPerfil {
+  background-image: var(--branco);
+  padding: 5px 40px;
+  border-radius: 10px;
+  width: 40vw;
+  height: 60%;
+
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+.cardPerfil div {
+  margin-bottom: 20px;
+}
+
+.tituloCardPerfil {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tituloCardPerfil h2 {
+  width: 220px;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.tituloCardPerfil div {
+  width: 80px;
+  height: 30px;
+
+  margin-top: 25px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tituloCardPerfil div img {
+  width: 14px;
+  height: 12px;
+}
+
+.tituloCardPerfil div p {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageReceptor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.imageReceptor .editarPerfil {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.imageReceptor .editarPerfil img {
+  width: 14px;
+  height: 12px;
+}
+
+.imageReceptor .editarPerfil p {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.infoReceptor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -40px;
+  margin-left: 70px;
+}
+
+.infoReceptor p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.infoBanco {
+  font-size: 1rem;
+}
+
+.infoBanco p {
+  margin-bottom: 10px;
+}

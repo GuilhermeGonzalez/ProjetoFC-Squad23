@@ -1,0 +1,166 @@
+.contentPagePagamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contentPagePagamento h3 {
+  font-weight: 400;
+}
+
+.headerPage {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.headerPage .titlePagamento {
+  width: 62%;
+}
+
+.headerPage .voltarInicio {
+  text-align: right;
+  margin-right: 50px;
+  width: 38%;
+}
+
+.headerPage h2 {
+  text-align: right;
+}
+
+.cardContentPagamento {
+  background-image: var(--branco);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+
+  width: 68vw;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.cardContentPagamento .titleContentPagamento {
+  margin-bottom: 30px;
+}
+
+.titleContentPagamento h3 {
+  font-weight: 600;
+}
+
+.cardContentPagamento input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+/*INPUTS*/
+
+.contentPagamento {
+  width: 100%;
+}
+.contentPagamento .inputField {
+  margin-top: 10px;
+}
+
+.contentPagamento label {
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.lineContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentPagamento input[type="email"] {
+  width: 28%;
+}
+
+.anonimoOuNao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contentPagamento > .lineContent:first-of-type input {
+  width: 80%;
+}
+
+.anonimoOuNao > .lineContent:first-of-type input[type="text"] {
+  width: 140%;
+}
+
+.anonimoOuNao > .anonimoContent {
+  margin-bottom: -20px;
+}
+.anonimoOuNao > .anonimoContent input[type="radio"] {
+  margin-left: 100px;
+}
+
+.meioPagamento {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+.meioPagamento p {
+  margin-top: -5px;
+}
+
+.meioPagamento input[type="radio"] {
+}
+
+.contribuirPagamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#centerInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#formaPagamentoSelecionada #cartaoContent {
+  display: flex;
+  flex-direction: row;
+}
+
+#cartaoContentLeft {
+  width: 50%;
+}
+
+#cartaoContentLeft .lineContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartaoContentRight {
+  width: 50%;
+}
+
+#cartaoContentLeft #ultimaLinhaCartaoInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.lineContentCartao {
+  display: flex;
+  flex-direction: column;
+}

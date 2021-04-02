@@ -1,0 +1,45 @@
+.header-container {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px 0px;
+  background: var(--branco);
+}
+
+.header-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+}
+.header-container div img {
+  width: 40px;
+  height: 40px;
+}
+
+.header-container div p,
+button {
+  margin-left: 15px;
+}
+
+.header-container p {
+  font-weight: 800;
+}
+
+.header-container a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--corUm);
+}
+
+.header-container div:nth-child(2) {
+  justify-content: space-between;
+}
+
+.header-container button {
+  width: 100px;
+  font-size: 1.1rem;
+}

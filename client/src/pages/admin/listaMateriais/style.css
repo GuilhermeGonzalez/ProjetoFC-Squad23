@@ -1,0 +1,232 @@
+.contentPageLista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentPageLista h2 {
+  color: var(--corQuatro);
+  margin-top: 30px;
+  font-size: 2rem;
+}
+
+.contentListaMateriais {
+  background-image: var(--branco);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  padding: 40px 20px;
+
+  width: 80vw;
+  height: 70vh;
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.card {
+  background-image: var(--branco);
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 35vw;
+
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 6px 6px #ccc;
+}
+
+.listaMaterialCard {
+}
+
+.vaquinha {
+  height: 350px;
+}
+
+.tituloCard {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.tituloCard h2 {
+  width: 220px;
+  color: var(--corQuatro);
+  font-size: 1rem;
+  font-weight: 800;
+}
+.tituloCard div {
+  width: 80px;
+  height: 30px;
+
+  margin-top: 25px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tituloCard div img {
+  width: 14px;
+  height: 12px;
+}
+
+.tituloCard div p {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+.header {
+  color: var(--branco);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#myInputQtde {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 25%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+#myInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.listaMaterialCard .itemsCardLista ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.listaMaterialCard .itemsCardLista ul li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+  height: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.listaMaterialCard .itemsCardLista ul li strong {
+  width: 20%;
+  margin-right: 20px;
+}
+.listaMaterialCard .itemsCardLista ul li p {
+  width: 55%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.listaMaterialCard .itemsCardLista ul li button {
+}
+
+/* Style the "Add"& "Remove" button */
+.addBtn {
+  padding: 10px;
+  width: 20%;
+  background: var(--corQuatro);
+  color: var(--branco);
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.addBtn:hover {
+  filter: brightness(1.2);
+}
+
+#removeButton {
+  padding: 10px;
+  height: auto;
+  width: 10%;
+  background: var(--corQuatro);
+  color: var(--branco);
+  float: left;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+#removeButton:hover {
+  background-color: red;
+}
+
+/*PARTE DA VAQUINHA*/
+.textoMeioVaquinha {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.textoMeioVaquinha p:first-child {
+  width: 56%;
+}
+
+.textoMeioVaquinha p:nth-child(2) {
+  color: var(--corQuatro);
+  font-weight: 800;
+}
+
+.textoMeioVaquinha p {
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.vaquinhaPorcentage {
+  display: flex;
+  flex-direction: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  align-items: center;
+  height: 50px;
+}
+
+.vaquinhaPorcentage p {
+  color: var(--corQuatro);
+  font-weight: 800;
+}
+
+.vaquinhaPorcentageBar {
+  width: 230px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: #e5e5e5;
+}
+
+.vaquinhaConcludedBar {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: var(--corQuatro);
+}

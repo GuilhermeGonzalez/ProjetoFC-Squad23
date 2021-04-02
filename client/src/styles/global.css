@@ -1,0 +1,59 @@
+:root {
+  /*CORES PRIMARIAS*/
+  --corUm: #7b7a7a;
+  --corDois: #969696;
+  --corTres: #c4c4c4;
+  --corQuatro: #12af9a;
+
+  /*FUNDO*/
+  --fundo: #fdfcfc;
+
+  /*CORES DE APOIO*/
+  --branco: #ffffff;
+  --preto: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  font: 18px "Montserrat", sans-serif;
+  color: var(--corUm);
+  background: var(--fundo);
+}
+
+input,
+textarea,
+select {
+  font-family: "Montserrat";
+}
+
+button {
+  background: var(--corQuatro);
+  color: var(--branco);
+  cursor: pointer;
+
+  font: 18px 600;
+
+  border: none;
+  height: 40px;
+  width: 180px;
+  border-radius: 10px;
+}
+
+input,
+select {
+  border: 1px solid var(--corUm);
+  padding-left: 15px;
+  height: 40px;
+  width: 180px;
+  border-radius: 10px;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
