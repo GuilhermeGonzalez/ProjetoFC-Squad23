@@ -5,8 +5,6 @@ import Footer from '../../../components/Footer';
 
 import './style.css';
 import CirculoVazio from '../.././../assets/circuloVazio.png';
-import CaixaVazia from '../.././../assets/caixaVazia.png';
-import CaixaGrandeVazia from '../.././../assets/caixaGrandeVazia.png';
 import BooksHomeImage from '../.././../assets/booksHome.png'
 
 import CoinImage from '../.././../assets/coin.png'
@@ -72,7 +70,7 @@ export default function Home() {
             <h1>Buscar doações</h1>
           </div>
           <div className="search-filterBox">
-            <select onChange="" name="tipo" id="tipo">
+            <select name="tipo" id="tipo">
               <option value="" disabled selected hidden>Tipo de usuário</option>
               <option value={"Professor(a)"}>Professor(a)</option>
               <option value={"Pais ou responsáveis"}>Pais ou responsáveis</option>
