@@ -14,10 +14,11 @@ module.exports = {
         if (!receptor) {
             data = { nome_rcpt, cidade_rcpt, uf_rcpt, email_rcpt, senha_rcpt, cpf_rcpt, historia_rcpt, data_nasc_rcpt, tipo_rcpt, nivel_rcpt, instituicao_rcpt, dados_bancarios_rcpt, lista_materiais };
             receptor = await Receptor.create(data);
-            return res.status(200).json(receptor);
+            const secondResponse = await Receptor.findOne({ email_rcpt });
+            return res.status(200).json({ msg: "Cadastrado com sucesso!", id: secondResponse._id });
         }
         else {
-            return res.status(500).json(receptor);
+            return res.status(500).json({ msg: "Email já cadastrado!" });
         }
     },
     async details(req, res) {
