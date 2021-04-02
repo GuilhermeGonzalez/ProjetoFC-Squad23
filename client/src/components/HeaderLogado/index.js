@@ -6,6 +6,8 @@ import './style.css';
 
 import Logo from '../../assets/logo.png';
 
+import SairModal from '../MensagensPopUp/TemCertezaSair';
+
 export default function Header() {
     let { handleModal } = useContext(ModalContext);
     const { idReceptor } = useParams();
@@ -30,7 +32,7 @@ export default function Header() {
                 <a href={`/login/${idReceptor}/admin/receptor`} id="perfil" className={clickedReceptor}>Perfil</a>
             </div>
             <div>
-                <button onClick={logout}>Sair</button>
+                <button onClick={() => handleModal(<SairModal />)}>Sair</button>
             </div>
         </div>
     );
