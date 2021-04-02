@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const config = require('../config.json');
+
 
 const DataSchema = new mongoose.Schema({
     nome_rcpt: String,

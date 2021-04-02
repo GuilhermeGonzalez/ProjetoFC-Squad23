@@ -1,4 +1,5 @@
 const Receptor = require('../models/receptor.model');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     async index(req, res) {
@@ -25,6 +26,21 @@ module.exports = {
         const { _id } = req.params;
         const receptor = await Receptor.findOne({ _id });
         res.json(receptor);
+    },
+    async login(req, res) {
+        let { email_rcpt, senha_rcpt } = req.body;
+        const receptor = await Receptor.findOne({ email_rcpt });
+        if (receptor) {
+            if (bcrypt.compareSync(senha_rcpt, receptor.senha_rcpt)) {
+                return res.status(200).json({ id: receptor._id });
+            }
+            else {
+                return res.status(500).json({ msg: "Senha invalida!" });
+            }
+        }
+        else {
+            return res.status(500).json({ msg: "Email não registrado!" });
+        }
     },
     async delete(req, res) {
         const { _id } = req.params;

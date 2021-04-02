@@ -14,6 +14,9 @@ routes.get('/api/receptor.details/:_id', Receptor.details);
 routes.delete('/api/receptor/:_id', Receptor.delete);
 routes.put('/api/receptor', Receptor.update);
 
+//Rotas de busca especificas
+routes.post('/api/receptor.login', Receptor.login);
+
 //Rotas de Doadores
 routes.post('/api/doador', Doador.create);
 routes.get('/api/doador', Doador.index);
