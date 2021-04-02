@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../../services/api'
+import { ModalContext } from "../../../hooks/useModal/modalContext";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ConcluirModal from '../../../components/MensagensPopUp/TemCertezaAcao';
+import PreenchaTodosCamposModal from '../../../components/MensagensPopUp/PreenchaTodosCampos';
 import "./style.css";
 
 import CartaoImage from '../../../assets/cartao.png';
@@ -12,7 +15,7 @@ import BoletoPDF from '../../../assets/boleto.pdf';
 
 export default function ListasMateriaisDoacao() {
   const { idReceptor } = useParams();
-
+  let { handleModal } = useContext(ModalContext);
   const [receptorConectado, setReceptorConectado] = useState({});
   const [nome, setNome] = useState("");
 
@@ -59,11 +62,23 @@ export default function ListasMateriaisDoacao() {
   `
 
 
-
+  function whichModalOpen() {
+    if (
+      document.getElementById("valueField").value <= 0 ||
+      document.getElementById("nameField").value == '' ||
+      document.getElementById("emailField").value == ''
+    ) {
+      handleModal(<PreenchaTodosCamposModal />)
+    }
+    else {
+      handleModal(<ConcluirModal />)
+    }
+  }
 
   function logout() {
-    window.location.href = "/"
+    window.location.href = "/";
   }
+
 
   useEffect(() => {
     async function findAndGenerateRows() {
@@ -112,12 +127,12 @@ export default function ListasMateriaisDoacao() {
           <div className="contentPagamento">
             <div className="lineContent">
               <label>Valor da contribuição:</label>
-              <input className="inputField" type="number" placeholder="Digite o valor da sua contribuição em reais." />
+              <input id="valueField" className="inputField" type="number" placeholder="Digite o valor da sua contribuição em reais." />
             </div>
             <div className="anonimoOuNao">
               <div className="lineContent">
                 <label>Nome completo:</label>
-                <input className="inputField" type="text" placeholder="Digite seu nome completo." />
+                <input id="nameField" className="inputField" type="text" placeholder="Digite seu nome completo." />
               </div>
               <div className="anonimoContent">
                 <input type="radio" className="checkbox" name="anonimo" value="Anonimo" />
@@ -126,7 +141,7 @@ export default function ListasMateriaisDoacao() {
             </div>
             <div id=" emailContent" className="lineContent">
               <label>E-mail:</label>
-              <input className="inputField" type="email" placeholder="Digite seu e-mail." />
+              <input id="emailField" className="inputField" type="email" placeholder="Digite seu e-mail." />
             </div>
             <div className="meioPagamento">
               <p>Meio de pagamento: </p>
@@ -143,7 +158,7 @@ export default function ListasMateriaisDoacao() {
             </div>
 
             <div className="contribuirPagamento">
-              <button>Contribuir</button>
+              <button onClick={whichModalOpen}>Contribuir</button>
             </div>
           </div>
 
