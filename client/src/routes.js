@@ -14,9 +14,6 @@ import Pagamento from './pages/client/pagamento';
 
 
 
-//import Cadastro
-import Cadastro from './pages/cadastro';
-
 export default function Routes() {
     return (
         <BrowserRouter>
@@ -27,8 +24,6 @@ export default function Routes() {
                 <Route path="/Doacao/:idReceptor/pagamento" exact component={Pagamento} /> {/* Tela de pagamento lista X*/}
 
 
-                {/* Rota de Cadastro */}
-                <Route path="/cadastro" exact component={Cadastro} />{/* Tela do cadastro do receptor */}
 
                 {/*Rota Admin = Telas em que o receptor terá controle*/}
                 <Route path="/login/:idReceptor/admin/listaMateriais" exact component={ListaMateriais} /> {/* Tela das listas do receptor */}
