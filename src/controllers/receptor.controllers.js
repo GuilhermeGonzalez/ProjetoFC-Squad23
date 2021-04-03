@@ -47,30 +47,26 @@ module.exports = {
         const receptor = await Receptor.findByIdAndDelete({ _id });
         return res.json(receptor);
     },
-    async update(req, res) {
+    async updateMeta(req, res) {
         const {
             _id,
-            nome_rcpt,
-            cidade_rcpt,
-            uf_rcpt,
-            email_rcpt,
-            senha_rcpt,
-            cpf_rcpt,
-            nome_inst
+            meta
         } = req.body;
 
-        const data = {
-            nome_rcpt,
-            cidade_rcpt,
-            uf_rcpt,
-            email_rcpt,
-            senha_rcpt,
-            cpf_rcpt,
-            nome_inst
-        }
+        await Receptor.findByIdAndUpdate({ _id: _id, 'lista_materiais.status': true }, { $set: { "lista_materiais.meta": meta } });
 
-        const receptor = await Receptor.findOneAndUpdate({ _id }, data, { new: true });
+        res.json({ msg: "Atualizado!" });
+    },
+    async updateMateriais(req, res) {
+        const {
+            _id,
+            material
+        } = req.body;
+        console.log(material);
 
+        let receptor = await Receptor.findOne({ _id });
+        receptor.lista_materiais.material = material;
+        await Receptor.findByIdAndUpdate({ _id }, receptor);
         res.json(receptor);
-    }
+    },
 }
