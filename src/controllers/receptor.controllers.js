@@ -69,4 +69,24 @@ module.exports = {
         await Receptor.findByIdAndUpdate({ _id }, receptor);
         res.json(receptor);
     },
+    async updateHistoria(req, res) {
+        const {
+            _id,
+            historia_rcpt
+        } = req.body;
+
+        await Receptor.findByIdAndUpdate({ _id: _id }, { $set: { "historia_rcpt": historia_rcpt } });
+
+        res.json({ msg: "Atualizado!" });
+    },
+    async updateDadosBancarios(req, res) {
+        const {
+            _id,
+            dados_bancarios_rcpt
+        } = req.body;
+
+        await Receptor.findByIdAndUpdate({ _id: _id }, { $set: { "dados_bancarios_rcpt": dados_bancarios_rcpt } });
+
+        res.json({ msg: "Atualizado!" });
+    },
 }
