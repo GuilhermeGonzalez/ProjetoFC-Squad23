@@ -45,7 +45,7 @@
 }
 
 .vaquinha {
-  height: 350px;
+  height: 320px;
 }
 
 .tituloCard {
@@ -181,6 +181,10 @@
 }
 
 /*PARTE DA VAQUINHA*/
+.editarVaquinha {
+  cursor: pointer;
+}
+
 .textoMeioVaquinha {
   display: flex;
   flex-direction: row;
@@ -225,8 +229,20 @@
 .vaquinhaConcludedBar {
   top: 0;
   left: 0;
-  width: 150px;
+  width: 0%;
   height: 25px;
   border-radius: 15px;
   background-color: var(--corQuatro);
+}
+
+.vaquinha .salvarVaquinhaDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.vaquinha .salvarVaquinhaDiv .botaoSalvarVaquinha {
+  width: 100px;
+  visibility: visible;
 }

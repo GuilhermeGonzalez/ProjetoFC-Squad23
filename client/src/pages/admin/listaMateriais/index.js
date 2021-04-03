@@ -10,7 +10,6 @@ import { FiTrash } from 'react-icons/fi'
 
 export default function ListasMateriais() {
   const { idReceptor } = useParams();
-
   const [rows, setRows] = useState([{}]);
   const [receptorConectado, setReceptorConectado] = useState({});
   const [newItemTitle, setNewItemTitle] = useState('');
@@ -18,6 +17,9 @@ export default function ListasMateriais() {
   const [porcentage, setPorcentage] = useState(0);
   const [meta, setMeta] = useState(0);
   const [valorArrecadado, setValorArrecadado] = useState(0);
+  const [edicao, setEdicao] = useState(false);
+  const [width, setWidth] = useState({ width: '0%' })
+  const [destaqueEdicao, setDestaqueEdicao] = useState({})
 
 
   useEffect(() => {
@@ -28,7 +30,8 @@ export default function ListasMateriais() {
       await setReceptorConectado(receptor);
       await setValorArrecadado(receptor.lista_materiais.valorArrecadado)
       await setMeta(receptor.lista_materiais.meta)
-      await setPorcentage(Math.round((valorArrecadado / meta) * 100))
+      await setPorcentage(((valorArrecadado / meta) * 100).toFixed(2))
+      await setWidth({ width: `${porcentage}%` });//////////////////
       receptor.lista_materiais.material.map(item => {
         auxRow.push(item);
       })
@@ -36,32 +39,61 @@ export default function ListasMateriais() {
     }
     findAndGenerateRows();
   }, [])
-  console.log(receptorConectado);
+  //console.log(receptorConectado);
 
-  useEffect(() => {
-    //ESSA PARTE ENVOLVE O BACKEND, TODA VEZ QUE MUDAR A ROW ELE FAZ UM UPDATE NO BANCO
 
-  }, [rows])
+  async function handleRemoveItem(id) {
+    let arr = rows.filter(elem => elem._id !== id);
+    setRows(arr);
 
-  console.log(rows)
-
-  function handleRemoveItem(id) {
-    let arr = [...rows];
-    setRows(arr.filter(elem => elem._id !== id));
+    let data = {
+      _id: idReceptor,
+      material: arr
+    }
+    console.log(data);
+    await api.put('/api/receptor.materiais', data);
   }
 
-  function handleAddItem() {
+  async function handleAddItem() {
     if (newItemTitle != '' && newQtdItem != 0) {
-      setRows([...rows, {
+      let auxRows = [...rows, {
         desc_material: newItemTitle,
         qtd_material: newQtdItem,
-      }])
+      }]
+      setRows(auxRows);
 
+      let data = {
+        _id: idReceptor,
+        material: auxRows
+      }
+      await api.put('/api/receptor.materiais/', data);
       setNewItemTitle('')
       setNewQtdItem(0)
+
     }
   }
 
+  function habilitaEdicao() {
+    setEdicao(true);
+    setDestaqueEdicao({ border: "3px #000 solid" });
+  }
+
+  async function salvarAlteracoesVaquinha() {
+    setEdicao(false);
+    let data = {
+      _id: idReceptor,
+      meta: meta
+    }
+    await api.put('/api/receptor.meta', data);
+    setPorcentage(((valorArrecadado / meta) * 100).toFixed(2))
+    setWidth({ width: `${porcentage}%` });
+    setDestaqueEdicao({ border: "none" });
+    //document.getElementsByClassName("vaquinhaConcludedBar").setAttribute("style", `width:${porcentage}%`);
+  }
+
+  const BotaoSalvarVaquinha = () => (
+    <button onClick={salvarAlteracoesVaquinha} className="botaoSalvarVaquinha">Salvar</button>
+  )
 
   return (
     <div>
@@ -111,24 +143,27 @@ export default function ListasMateriais() {
               <h2>Vaquinha</h2>
               <div className="editarVaquinha">
                 <img src={pencilImage} alt="imagem editar" />
-                <p>Editar</p>
+                <p onClick={habilitaEdicao}>Editar</p>
               </div>
             </div>
             <div className="textoMeioVaquinha">
               <p>Meta:</p>
               <p>R$</p>
-              <p contentEditable="true" onChange={(e) => setMeta(e.target.value)}>{meta}</p>
+              <p contentEditable={edicao} style={destaqueEdicao} onInput={(e) => setMeta(e.target.innerText)}>{meta}</p>
             </div>
             <div className="textoMeioVaquinha">
               <p>Valor arrecadado:</p>
               <p>R$</p>
-              <p contentEditable="true" onChange={(e) => setValorArrecadado(e.target.value)}>{valorArrecadado}</p>
+              <p >{valorArrecadado}</p>
             </div>
             <div className="vaquinhaPorcentage">
               <p>{porcentage} %</p>
               <div className="vaquinhaPorcentageBar">
-                <div className="vaquinhaConcludedBar"></div>
+                <div className="vaquinhaConcludedBar" style={width}></div>
               </div>
+            </div>
+            <div className="salvarVaquinhaDiv">
+              {edicao ? <BotaoSalvarVaquinha /> : null}
             </div>
           </div>
         </div>
