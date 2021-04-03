@@ -86,7 +86,7 @@ export default function Home() {
             </select>
 
             <select name="valor">
-              <option value="" disabled selected hidden>Valor máximo</option>
+              <option value={0} disabled selected hidden>Valor máximo</option>
               <option value={250}>Até R$250,00</option>
               <option value={500}>Até R$500,00</option>
               <option value={750}>Até R$750,00</option>
