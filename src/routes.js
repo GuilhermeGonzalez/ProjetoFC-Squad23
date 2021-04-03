@@ -16,6 +16,8 @@ routes.put('/api/receptor.meta', Receptor.updateMeta);
 routes.put('/api/receptor.materiais', Receptor.updateMateriais);
 routes.get('/api/receptor.find(/:cidade?)(/:tipo?)(/:valor?)',Receptor.findReceptor);
 routes.get('/api/receptor.valorArrecadado/:_id/:valorarrecadado', Receptor.valorArrecado);
+routes.put('/api/receptor.historia', Receptor.updateHistoria);
+routes.put('/api/receptor.dadosBancarios', Receptor.updateDadosBancarios);
 
 //Rotas de busca especificas
 routes.post('/api/receptor.login', Receptor.login);
