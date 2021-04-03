@@ -14,6 +14,8 @@ routes.get('/api/receptor.details/:_id', Receptor.details);
 routes.delete('/api/receptor/:_id', Receptor.delete);
 routes.put('/api/receptor.meta', Receptor.updateMeta);
 routes.put('/api/receptor.materiais', Receptor.updateMateriais);
+routes.get('/api/receptor.find(/:cidade?)(/:tipo?)(/:valor?)',Receptor.findReceptor);
+routes.get('/api/receptor.valorArrecadado/:_id/:valorarrecadado', Receptor.valorArrecado);
 
 //Rotas de busca especificas
 routes.post('/api/receptor.login', Receptor.login);

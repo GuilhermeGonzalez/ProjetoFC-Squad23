@@ -69,4 +69,85 @@ module.exports = {
         await Receptor.findByIdAndUpdate({ _id }, receptor);
         res.json(receptor);
     },
+
+    async findReceptor(req, res){
+        const{cidade, tipo, valor} = req.body;
+
+        if(tipo =='' && valor == 0){
+            
+            const receptor = await Receptor.find({cidade_rcpt:cidade}); 
+
+            return res.json(receptor);
+        
+        } else if(cidade =='' && valor == 0){
+            
+            const receptor = await Receptor.find({tipo_rcpt:tipo}); 
+            
+            return res.json(receptor);
+
+        } else if(cidade =='' && tipo == '' && valor <= 1000){
+            
+            const receptor = await Receptor.find({'lista_materiais.meta':{$lte: valor}}); 
+            
+            return res.json(receptor);
+        
+        }else if(cidade =='' && tipo == '' && valor >= 1001) {
+            
+            const receptor = await Receptor.find({'lista_materiais.meta':{$gte: valor}});
+            
+            return res.json(receptor);
+        
+        }else if(valor == 0){
+
+            const receptor = await Receptor.find({tipo_rcpt: tipo, cidade_rcpt:cidade})
+
+            return res.json(receptor);
+
+        } else if(tipo == '' && valor <= 1000){
+            
+            const receptor = await Receptor.find({cidade_rcpt:cidade, 'lista_materiais.meta':{$lte: valor}}); 
+            
+            return res.json(receptor);
+        
+        }else if(tipo == '' && valor >= 1001) {
+            
+            const receptor = await Receptor.find({cidade_rcpt:cidade, 'lista_materiais.meta':{$gte: valor}});
+            
+            return res.json(receptor);
+        
+        }else if(cidade == '' && valor <= 1000){
+            
+            const receptor = await Receptor.find({tipo_rcpt: tipo, 'lista_materiais.meta':{$lte: valor}}); 
+            
+            return res.json(receptor);
+        
+        }else if(cidade == '' && valor >= 1001) {
+            
+            const receptor = await Receptor.find({tipo_rcpt: tipo, 'lista_materiais.meta':{$gte: valor}});
+            
+            return res.json(receptor);
+        
+        } else if (valor <= 1000) {
+
+            const receptor = await Receptor.find({tipo_rcpt: tipo, cidade_rcpt:cidade, 'lista_materiais.meta':{$lte: valor}}); 
+            
+            return res.json(receptor);
+        
+        }else{
+                const receptor = await Receptor.find( ); 
+
+
+                return res.json(receptor);
+    
+            }
+    },
+    
+    async valorArrecado(req, res){
+        
+        const{_id, valorarrecadado} = req.params;
+
+        const receptor = await Receptor.findByIdAndUpdate({_id:_id, 'lista_materiais.status':true}, {$inc:{'lista_materiais.valorArrecadado': valorarrecadado}})
+
+        return res.json(receptor)
+    },        
 }
