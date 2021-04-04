@@ -98,6 +98,11 @@
 }
 
 /*DISPLAY PART*/
+.search-displayBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+}
 
 .search-cardReceptor {
   background-color: var(--branco);
@@ -150,6 +155,7 @@
 }
 
 .search-porcentContainer p {
+  width: 25%;
   color: var(--corQuatro);
   font-weight: 800;
 }
