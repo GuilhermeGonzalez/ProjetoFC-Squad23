@@ -75,36 +75,40 @@ module.exports = {
         let receptor = {};
 
         if (uf == '' && tipo == '' && valor == 0) {
-            receptor = await Receptor.find();
+            receptor = await Receptor.find({ 'lista_materiais.status': true });
         }
         else if (uf != '' && tipo != '' && valor != 0) {
             if (valor >= 1001) {
                 receptor = await Receptor.find({
                     tipo_rcpt: tipo,
                     uf_rcpt: uf,
-                    'lista_materiais.meta': { $gte: valor }
+                    'lista_materiais.meta': { $gte: valor },
+                    'lista_materiais.status': true
                 });
             } else {
                 receptor = await Receptor.find({
                     tipo_rcpt: tipo,
                     uf_rcpt: uf,
-                    'lista_materiais.meta': { $lte: valor }
+                    'lista_materiais.meta': { $lte: valor },
+                    'lista_materiais.status': true
                 });
             }
         }
         else if (uf != '' && tipo != '' && valor == 0) {
-            receptor = await Receptor.find({ uf_rcpt: uf, tipo_rcpt: tipo });
+            receptor = await Receptor.find({ uf_rcpt: uf, tipo_rcpt: tipo, 'lista_materiais.status': true });
         }
         else if (uf != '' && tipo == '' && valor != 0) {
             if (valor >= 1001) {
                 receptor = await Receptor.find({
                     uf_rcpt: uf,
-                    'lista_materiais.meta': { $gte: valor }
+                    'lista_materiais.meta': { $gte: valor },
+                    'lista_materiais.status': true
                 });
             } else {
                 receptor = await Receptor.find({
                     uf_rcpt: uf,
-                    'lista_materiais.meta': { $lte: valor }
+                    'lista_materiais.meta': { $lte: valor },
+                    'lista_materiais.status': true
                 });
             }
         }
@@ -112,31 +116,35 @@ module.exports = {
             if (valor >= 1001) {
                 receptor = await Receptor.find({
                     tipo_rcpt: tipo,
-                    'lista_materiais.meta': { $gte: valor }
+                    'lista_materiais.meta': { $gte: valor },
+                    'lista_materiais.status': true
                 });
             } else {
                 receptor = await Receptor.find({
                     tipo_rcpt: tipo,
-                    'lista_materiais.meta': { $lte: valor }
+                    'lista_materiais.meta': { $lte: valor },
+                    'lista_materiais.status': true
                 });
             }
         }
         else if (uf == '' && tipo == '' && valor != 0) {
             if (valor >= 1001) {
                 receptor = await Receptor.find({
-                    'lista_materiais.meta': { $gte: valor }
+                    'lista_materiais.meta': { $gte: valor },
+                    'lista_materiais.status': true
                 });
             } else {
                 receptor = await Receptor.find({
-                    'lista_materiais.meta': { $lte: valor }
+                    'lista_materiais.meta': { $lte: valor },
+                    'lista_materiais.status': true
                 });
             }
         }
         else if (uf != '' && tipo == '' && valor == 0) {
-            receptor = await Receptor.find({ uf_rcpt: uf });
+            receptor = await Receptor.find({ uf_rcpt: uf, 'lista_materiais.status': true });
         }
         else if (uf == '' && tipo != '' && valor == 0) {
-            receptor = await Receptor.find({ tipo_rcpt: tipo });
+            receptor = await Receptor.find({ tipo_rcpt: tipo, 'lista_materiais.status': true });
         }
         res.json(receptor);
     },
