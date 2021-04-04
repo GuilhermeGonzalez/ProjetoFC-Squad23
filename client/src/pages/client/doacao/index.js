@@ -32,7 +32,7 @@ export default function ListasMateriaisDoacao() {
       await setReceptorConectado(receptor);
       await setValorArrecadado(receptor.lista_materiais.valorArrecadado)
       await setMeta(receptor.lista_materiais.meta)
-      await setPorcentage(Math.round((valorArrecadado / meta) * 100))
+      await setPorcentage(parseFloat(((receptor.lista_materiais.valorArrecadado / receptor.lista_materiais.meta) * 100).toFixed(2)))
       await setInstituicao(receptor.instituicao_rcpt);
       await setNome(receptor.nome_rcpt);
       await setTipo(receptor.tipo_rcpt);
@@ -117,12 +117,12 @@ export default function ListasMateriaisDoacao() {
               <div className="textoMeioVaquinhaDoacao">
                 <p>Meta:</p>
                 <p>R$</p>
-                <p contentEditable="true">{meta}</p>
+                <p>{meta}</p>
               </div>
               <div className="textoMeioVaquinhaDoacao">
                 <p>Valor arrecadado:</p>
                 <p>R$</p>
-                <p contentEditable="true">{valorArrecadado}</p>
+                <p>{valorArrecadado}</p>
               </div>
               <div className="vaquinhaDoacaoPorcentage">
                 <p>{porcentage} %</p>
