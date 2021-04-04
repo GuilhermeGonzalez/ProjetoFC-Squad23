@@ -30,7 +30,7 @@ export default function ListasMateriais() {
       await setReceptorConectado(receptor);
       await setValorArrecadado(receptor.lista_materiais.valorArrecadado)
       await setMeta(receptor.lista_materiais.meta)
-      await setPorcentage(((valorArrecadado / meta) * 100).toFixed(2))
+      await setPorcentage(parseFloat(((receptor.lista_materiais.valorArrecadado / receptor.lista_materiais.meta) * 100).toFixed(2)))
       await setWidth({ width: `${porcentage}%` });//////////////////
       receptor.lista_materiais.material.map(item => {
         auxRow.push(item);
@@ -51,7 +51,7 @@ export default function ListasMateriais() {
       material: arr
     }
     console.log(data);
-    await api.put('/api/receptor.materiais', data);
+    await api.put('/api/receptor.materiais/', data);
   }
 
   async function handleAddItem() {
