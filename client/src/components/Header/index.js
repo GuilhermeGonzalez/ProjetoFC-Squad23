@@ -15,7 +15,7 @@ export default function Header() {
                 <p>Donate It!</p>
             </div>
             <div>
-                <a onClick={() => handleModal(<CadastroModal />)}>Cadastre-se</a>
+                <span onClick={() => handleModal(<CadastroModal />)}>Cadastre-se</span>
                 <button onClick={() => handleModal(<LoginModal />)}>Login</button>
             </div>
         </div>

@@ -158,7 +158,7 @@ export default function Home() {
             })}
           </div> :
             <div className="doacaoDivIndisponivel">
-              <p id="doacaoIndisponivel">Não doações disponíveis !</p>
+              <p id="doacaoIndisponivel">Não há doações disponíveis !</p>
             </div>
           }
 

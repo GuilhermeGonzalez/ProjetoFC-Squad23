@@ -29,10 +29,11 @@ button {
   font-weight: 800;
 }
 
-.header-container a {
+.header-container span {
   font-size: 0.9rem;
   text-decoration: none;
   color: var(--corUm);
+  cursor: pointer;
 }
 
 .header-container div:nth-child(2) {

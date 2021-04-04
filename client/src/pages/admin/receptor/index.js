@@ -127,7 +127,7 @@ export default function ReceptorListagem() {
                 <p onClick={habilitaEdicaoHistoria}>Editar</p>
               </div>
             </div>
-            <p contentEditable={edicaoHistoria} style={destaqueEdicaoHistoria} onInput={(e) => setHistoria(e.target.innerText)}>{historia}</p>
+            <p contentEditable={edicaoHistoria} style={destaqueEdicaoHistoria} onBlur={(e) => setHistoria(e.target.innerText)}>{historia}</p>
             <div className="salvarDiv">
               {edicaoHistoria ? <BotaoSalvarHistoria /> : null}
             </div>
@@ -143,9 +143,9 @@ export default function ReceptorListagem() {
               </div>
             </div>
             <div className="infoBanco">
-              <div className="linhaInfoBanco">Banco: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onInput={(e) => setBanco(e.target.innerText)} >{banco}</p></div>
-              <div className="linhaInfoBanco">Agencia: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onInput={(e) => setAgencia(e.target.innerText)}>{agencia}</p></div>
-              <div className="linhaInfoBanco">Conta corrente: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onInput={(e) => setContaCorrente(e.target.innerText)}>{conta_corrente}</p></div>
+              <div className="linhaInfoBanco">Banco: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onBlur={(e) => setBanco(e.target.innerText)} >{banco}</p></div>
+              <div className="linhaInfoBanco">Agencia: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onBlur={(e) => setAgencia(e.target.innerText)}>{agencia}</p></div>
+              <div className="linhaInfoBanco">Conta corrente: <p contentEditable={edicaoBanco} style={destaqueEdicaoBanco} onBlur={(e) => setContaCorrente(e.target.innerText)}>{conta_corrente}</p></div>
             </div>
             <div className="salvarDiv">
               {edicaoBanco ? <BotaoSalvarBanco /> : null}
