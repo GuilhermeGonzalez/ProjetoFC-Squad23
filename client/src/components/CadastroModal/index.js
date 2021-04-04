@@ -17,108 +17,109 @@ export default function CadastroModal() {
     const [tipo_rcpt, setTipo] = useState('');
     const [nivel_rcpt, setNivel] = useState('');
     const [instituicao_rcpt, setInstituicao] = useState('');
+    const [selectedFormType, setSelectedFormType] = useState(0);
 
 
-    const tipo1 = `
-    <label>Nivel Escolar em que leciona:</label>
-    <select value={nivel_rcpt} onChange={e => setNivel(e.target.value)} name="nivelEscolar">
-        <option value="" disabled selected hidden>Selecione seu nivel</option>
-        <option value="Educação Infantil">Educação Infantil e pré escola</option>
-        <option value="Fundamental 1">Fundamental 1</option>
-        <option value="Fundamental 2">Fundamental 2</option>
-        <option value="Ensino Médio">Ensino Médio</option>
-        <option value="Curso Preparatório">Curso Preparatório</option>
-        <option value="Ensino Superior">Ensino Superior</option>
-    </select>
+    const Tipo1 = () => (<>
+        <label>Nivel Escolar em que leciona:</label>
+        <select value={nivel_rcpt} onChange={e => setNivel(e.target.value)} name="nivelEscolar">
+            <option value="" disabled selected hidden>Selecione seu nivel</option>
+            <option value="Educação Infantil">Educação Infantil e pré escola</option>
+            <option value="Fundamental 1">Fundamental 1</option>
+            <option value="Fundamental 2">Fundamental 2</option>
+            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Curso Preparatório">Curso Preparatório</option>
+            <option value="Ensino Superior">Ensino Superior</option>
+        </select>
 
-    <label> Instituição em que leciona:</label>
-    <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
-        <option value="" disabled selected hidden>Selecione o tipo</option>
-        <option value="Instituições Públicas">Instituições Públicas</option>
-        <option value="Instituições Privadas">Instituições Privadas</option>
-        <option value="Instituições filantrópicas">Instituições filantrópicas</option>
-    </select>
+        <label> Instituição em que leciona:</label>
+        <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
+            <option value="" disabled selected hidden>Selecione o tipo</option>
+            <option value="Instituições Públicas">Instituições Públicas</option>
+            <option value="Instituições Privadas">Instituições Privadas</option>
+            <option value="Instituições filantrópicas">Instituições filantrópicas</option>
+        </select>
 
-    <label>Cidade em que leciona:</label>
-    <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
-        <option value="" disabled selected hidden>Selecione a cidade</option>
-        <option value="Guaruja">Guaruja</option>
-        <option value="Presidente Prudente">Presidente Prudente</option>
-        <option value="Santos">Santos</option>
-        <option value="São Vicente">São Vicente</option>
-        <option value="Salvador">Salvador</option>
-    </select>
-    <label>UF:</label>
-    <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
-        <option value="" disabled selected hidden>Selecione o estado</option>
-        <option value="BH">Bahia</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="SP">São Paulo</option>
-    </select>
-    `
+        <label>Cidade em que leciona:</label>
+        <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
+            <option value="" disabled selected hidden>Selecione a cidade</option>
+            <option value="Guaruja">Guaruja</option>
+            <option value="Presidente Prudente">Presidente Prudente</option>
+            <option value="Santos">Santos</option>
+            <option value="São Vicente">São Vicente</option>
+            <option value="Salvador">Salvador</option>
+        </select>
+        <label>UF:</label>
+        <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
+            <option value="" disabled selected hidden>Selecione o estado</option>
+            <option value="BH">Bahia</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP">São Paulo</option>
+        </select>
+    </>)
 
-    const tipo2 = `
-    <label>Nivel Escolar do estudante:</label>
-    <select value={nivel_rcpt} onChange={e => setNivel(e.target.value)} name="nivelEscolar">
-        <option value="" disabled selected hidden>Selecione o nivel</option>
-        <option value="Educação Infantil">Educação Infantil e pré escola</option>
-        <option value="Fundamental 1">Fundamental 1</option>
-        <option value="Fundamental 2">Fundamental 2</option>
-        <option value="Ensino Médio">Ensino Médio</option>
-        <option value="Curso Preparatório">Curso Preparatório</option>
-        <option value="Ensino Superior">Ensino Superior</option>
-    </select>
+    const Tipo2 = () => (<>
+        <label>Nivel Escolar do estudante:</label>
+        <select value={nivel_rcpt} onChange={e => setNivel(e.target.value)} name="nivelEscolar">
+            <option value="" disabled selected hidden>Selecione o nivel</option>
+            <option value="Educação Infantil">Educação Infantil e pré escola</option>
+            <option value="Fundamental 1">Fundamental 1</option>
+            <option value="Fundamental 2">Fundamental 2</option>
+            <option value="Ensino Médio">Ensino Médio</option>
+            <option value="Curso Preparatório">Curso Preparatório</option>
+            <option value="Ensino Superior">Ensino Superior</option>
+        </select>
 
-    <label> Instituição em que estuda:</label>
-    <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
-        <option value="" disabled selected hidden>Selecione o tipo</option>
-        <option value="Instituições Públicas">Instituições Públicas</option>
-        <option value="Instituições Privadas">Instituições Privadas</option>
-        <option value="Instituições filantrópicas">Instituições filantrópicas</option>
-    </select>
-    <label>Cidade em que mora:</label>
-    <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
-        <option value="" disabled selected hidden>Selecione a cidade</option>
-        <option value="Guaruja">Guaruja</option>
-        <option value="Presidente Prudente">Presidente Prudente</option>
-        <option value="Santos">Santos</option>
-        <option value="São Vicente">São Vicente</option>
-        <option value="Salvador">Salvador</option>
-    </select>
-    <label>UF:</label>
-    <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
-        <option value="" disabled selected hidden>Selecione o estado</option>
-        <option value="BH">Bahia</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="SP">São Paulo</option>
-    </select>
-`
+        <label> Instituição em que estuda:</label>
+        <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
+            <option value="" disabled selected hidden>Selecione o tipo</option>
+            <option value="Instituições Públicas">Instituições Públicas</option>
+            <option value="Instituições Privadas">Instituições Privadas</option>
+            <option value="Instituições filantrópicas">Instituições filantrópicas</option>
+        </select>
+        <label>Cidade em que mora:</label>
+        <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
+            <option value="" disabled selected hidden>Selecione a cidade</option>
+            <option value="Guaruja">Guaruja</option>
+            <option value="Presidente Prudente">Presidente Prudente</option>
+            <option value="Santos">Santos</option>
+            <option value="São Vicente">São Vicente</option>
+            <option value="Salvador">Salvador</option>
+        </select>
+        <label>UF:</label>
+        <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
+            <option value="" disabled selected hidden>Selecione o estado</option>
+            <option value="BH">Bahia</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP">São Paulo</option>
+        </select>
+    </>)
 
-    const tipo3 = `
-    <label> Instituição em que estuda:</label>
-    <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
-        <option value="" disabled selected hidden>Selecione o tipo</option>
-        <option value="Instituições Públicas">Instituições Públicas</option>
-        <option value="Instituições Privadas">Instituições Privadas</option>
-        <option value="Instituições filantrópicas">Instituições filantrópicas</option>
-    </select>
-    <label>Cidade em que mora:</label>
-    <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
-        <option value="" disabled selected hidden>Selecione a cidade</option>
-        <option value="Guaruja">Guaruja</option>
-        <option value="Presidente Prudente">Presidente Prudente</option>
-        <option value="Santos">Santos</option>
-        <option value="São Vicente">São Vicente</option>
-        <option value="Salvador">Salvador</option>
-    </select>
-    <label>UF:</label>
-    <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
-        <option value="" disabled selected hidden>Selecione o estado</option>
-        <option value="BH">Bahia</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="SP">São Paulo</option>
-    </select>
-    `
+    const Tipo3 = () => (<>
+        <label> Instituição em que estuda:</label>
+        <select value={instituicao_rcpt} onChange={e => setInstituicao(e.target.value)} name="instituicao">
+            <option value="" disabled selected hidden>Selecione o tipo</option>
+            <option value="Instituições Públicas">Instituições Públicas</option>
+            <option value="Instituições Privadas">Instituições Privadas</option>
+            <option value="Instituições filantrópicas">Instituições filantrópicas</option>
+        </select>
+        <label>Cidade em que mora:</label>
+        <select value={cidade_rcpt} onChange={e => setCidade(e.target.value)} name="cidade">
+            <option value="" disabled selected hidden>Selecione a cidade</option>
+            <option value="Guaruja">Guaruja</option>
+            <option value="Presidente Prudente">Presidente Prudente</option>
+            <option value="Santos">Santos</option>
+            <option value="São Vicente">São Vicente</option>
+            <option value="Salvador">Salvador</option>
+        </select>
+        <label>UF:</label>
+        <select value={uf_rcpt} onChange={e => setUf(e.target.value)} name="uf">
+            <option value="" disabled selected hidden>Selecione o estado</option>
+            <option value="BH">Bahia</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP">São Paulo</option>
+        </select>
+    </>)
 
 
     function trocaInputsLeft() {
@@ -126,16 +127,16 @@ export default function CadastroModal() {
         let selectedValue = ddl.options[ddl.selectedIndex].value;
         setTipo(selectedValue);
         if (parseInt(selectedValue) === 0) {
-            document.getElementById("inputHere").innerHTML = "";
+            setSelectedFormType(0);
         }
         else if (selectedValue === "Professor(a)") {
-            document.getElementById("inputHere").innerHTML = tipo1;
+            setSelectedFormType(1);
         }
         else if (selectedValue === "Pais ou responsáveis") {
-            document.getElementById("inputHere").innerHTML = tipo2;
+            setSelectedFormType(2);
         }
         else if (selectedValue === "Estudante Curso Preparatório" || selectedValue === "Estudante Universitário") {
-            document.getElementById("inputHere").innerHTML = tipo3;
+            setSelectedFormType(3);
         }
     }
 
@@ -225,7 +226,12 @@ export default function CadastroModal() {
 
                                 </div>
                                 <div id="inputHere" className="formInputsRight">
-
+                                    {
+                                        selectedFormType === 0 ? '' :
+                                            selectedFormType === 1 ? <Tipo1 /> :
+                                                selectedFormType === 2 ? <Tipo2 /> :
+                                                    selectedFormType === 3 ? <Tipo3 /> : ''
+                                    }
                                 </div>
                             </div>
 
