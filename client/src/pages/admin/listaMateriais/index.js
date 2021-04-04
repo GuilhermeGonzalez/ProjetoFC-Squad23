@@ -145,7 +145,7 @@ export default function ListasMateriais() {
             <div className="textoMeioVaquinha">
               <p>Meta:</p>
               <p>R$</p>
-              <p contentEditable={edicao} style={destaqueEdicao} onInput={(e) => setMeta(e.target.innerText)}>{meta}</p>
+              <p contentEditable={edicao} style={destaqueEdicao} onBlur={(e) => setMeta(e.target.innerText)}>{meta}</p>
             </div>
             <div className="textoMeioVaquinha">
               <p>Valor arrecadado:</p>
