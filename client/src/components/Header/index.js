@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import imagemAuxiliar from '.././../assets/caixaVazia.png';
 import LoginModal from '../LoginModal';
 import CadastroModal from '../CadastroModal';
 import { ModalContext } from "../../hooks/useModal/modalContext";

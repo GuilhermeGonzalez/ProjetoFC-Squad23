@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import imagemAuxiliar from '.././../assets/caixaVazia.png';
 import { useParams } from 'react-router-dom';
 import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
@@ -15,10 +14,6 @@ export default function Header() {
 
     let clickedLista = url.includes("listaMateriais") ? "clicked" : "";
     let clickedReceptor = url.includes("receptor") ? "clicked" : "";
-
-    function logout() {
-        window.location.href = "/"
-    }
 
 
     return (

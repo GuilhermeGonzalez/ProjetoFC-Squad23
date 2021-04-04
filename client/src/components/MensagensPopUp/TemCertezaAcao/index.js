@@ -1,17 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ModalContext } from "../../../hooks/useModal/modalContext";
 
 import './style.css';
 import Fechar from '../../../assets/close.png';
-import DoacaoEfetuadaModal from '../DoacaoEfetuada';
 
-export default function ConcluirModal() {
+import api from '../../../services/api';
+
+export default function ConcluirModal(props) {
     let { handleModal } = useContext(ModalContext);
 
-    function logout() {
+    async function logout() {
+        await api.post('/api/doador', props.info).then(res => {
+            alert(res.data.mensagem)
+        });
         window.location.href = "/";
-        alert("Muito obrigado, doação efetuada com sucesso!");
-        //await handleModal(<DoacaoEfetuadaModal />)
     }
 
     return (
@@ -28,7 +30,6 @@ export default function ConcluirModal() {
                         <button onClick={logout}>Sim</button>
                         <button onClick={handleModal}>Cancelar</button>
                     </div>
-
                 </div>
             </div>
         </>

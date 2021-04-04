@@ -16,8 +16,11 @@ import BoletoPDF from '../../../assets/boleto.pdf';
 export default function ListasMateriaisDoacao() {
   const { idReceptor } = useParams();
   let { handleModal } = useContext(ModalContext);
-  const [receptorConectado, setReceptorConectado] = useState({});
   const [nome, setNome] = useState("");
+
+  const [formaPagamento, setFormaPagamento] = useState("");
+
+
 
   const boleto = `
     <div id="centerInfo"> 
@@ -71,7 +74,16 @@ export default function ListasMateriaisDoacao() {
       handleModal(<PreenchaTodosCamposModal />)
     }
     else {
-      handleModal(<ConcluirModal />)
+      let info = {
+        nome_doador: document.getElementById("nameField").value,
+        email_doador: document.getElementById("emailField").value,
+        doacao: {
+          valor_doacao: document.getElementById("valueField").value,
+          forma_pagamento: formaPagamento,
+          id_receptor: idReceptor
+        }
+      }
+      handleModal(<ConcluirModal info={info} />)
     }
   }
 
@@ -83,7 +95,6 @@ export default function ListasMateriaisDoacao() {
   useEffect(() => {
     async function findAndGenerateRows() {
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
       await setNome(receptor.nome_rcpt);
     }
     findAndGenerateRows();
@@ -92,12 +103,15 @@ export default function ListasMateriaisDoacao() {
   function trocaPagamento() {
     const opcao = document.querySelector('input[name="pag"]:checked').value;
     if (opcao == 'boleto') {
+      setFormaPagamento('boleto');
       document.getElementById("formaPagamentoSelecionada").innerHTML = boleto;
     }
     else if (opcao == 'pix') {
+      setFormaPagamento('pix');
       document.getElementById("formaPagamentoSelecionada").innerHTML = pix;
     }
     else if (opcao == 'cartaoDeCredito') {
+      setFormaPagamento('cartao de credito');
       document.getElementById("formaPagamentoSelecionada").innerHTML = cartaoDeCredito;
     }
     else {

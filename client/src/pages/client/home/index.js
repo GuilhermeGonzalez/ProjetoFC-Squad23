@@ -31,9 +31,6 @@ export default function Home() {
   }, [tipo_rcpt, uf_rcpt, valor_rcpt])
 
   async function findAndGenerate() {
-    // const { data: receptores } = await api.get('/api/receptor.findReceptor/', data)
-    // await setDoacao(receptores);
-    // console.log(doacao);
     await api.get('/api/receptor.findReceptor', {
       params: {
         tipo: tipo_rcpt,
@@ -134,7 +131,6 @@ export default function Home() {
           </div>
           {doacao.length > 0 ? <div className="search-displayBox">
             {doacao.map(item => {
-              //debugger
               let porcentage = 0;
               if (item != {} && item.lista_materiais != undefined) {
                 porcentage = parseFloat(((item.lista_materiais.valorArrecadado / item.lista_materiais.meta) * 100).toFixed(2));
