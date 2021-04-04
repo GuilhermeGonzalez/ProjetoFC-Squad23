@@ -41,6 +41,10 @@ export default function Home() {
     })
   }
 
+  function handleDoacao(id) {
+    window.location.href = `/Doacao/${id}`;
+  }
+
   return (
     <div>
       <Header />
@@ -123,17 +127,15 @@ export default function Home() {
               <option value={1001}>Maior que R$1000,00</option>
             </select>
           </div>
-
-          <div className="search-displayBox">
+          {doacao.length > 0 ? <div className="search-displayBox">
             {doacao.map(item => {
               //debugger
               let porcentage = 0;
               if (item != {} && item.lista_materiais != undefined) {
                 porcentage = parseFloat(((item.lista_materiais.valorArrecadado / item.lista_materiais.meta) * 100).toFixed(2));
               }
-
               return (
-                <div key={item._id} className="search-cardReceptor">
+                <div onClick={e => handleDoacao(item._id)} id={item._id} className="search-cardReceptor">
                   <p>{item.nome_rcpt}</p>
                   <div className="search-infoReceptor">
                     <img src={CirculoVazio} alt="" />
@@ -153,7 +155,12 @@ export default function Home() {
                 </div>
               )
             })}
-          </div>
+          </div> :
+            <div className="doacaoDivIndisponivel">
+              <p id="doacaoIndisponivel">Não doações disponíveis !</p>
+            </div>
+          }
+
         </div>
       </div>
       <Footer />
