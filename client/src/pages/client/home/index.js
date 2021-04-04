@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import api from '../../../services/api';
 
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
+
+import { ModalContext } from "../../../hooks/useModal/modalContext";
+import CadastroModal from '../../../components/CadastroModal';
 
 import './style.css';
 import CirculoVazio from '../.././../assets/circuloVazio.png';
@@ -13,6 +16,7 @@ import HeartImage from '../.././../assets/heart.png'
 import FolhaImage from '../.././../assets/folha.png'
 
 export default function Home() {
+  let { handleModal } = useContext(ModalContext);
   const [doacao, setDoacao] = useState([{}]);
   const [tipo_rcpt, setTipo] = useState("");
   const [uf_rcpt, setUf] = useState("");
@@ -61,8 +65,8 @@ export default function Home() {
               </p>
             </div>
             <div className="principal-buttonBoxContainer">
-              <button>Preciso de doações</button>
-              <button>Quero doar</button>
+              <button onClick={() => handleModal(<CadastroModal />)} >Preciso de doações</button>
+              <button><a href="#doacoes">Quero doar</a></button>
             </div>
           </div>
           <div className="principal-rigthbox">
@@ -101,6 +105,7 @@ export default function Home() {
         <div className="search-infoContainer">
           <div className="search-titleBox">
             <h1>Buscar doações</h1>
+            <a name="doacoes" ></a>
           </div>
           <div className="search-filterBox">
             <select value={tipo_rcpt} onChange={e => setTipo(e.target.value)} name="tipo" id="tipo">
