@@ -52,8 +52,12 @@ module.exports = {
             _id,
             meta
         } = req.body;
+        let receptor = await Receptor.findOne({ _id });
+        let status = receptor.lista_materiais.status;
+        if (receptor.lista_materiais.meta == 0 && receptor.lista_materiais.status == false)
+            status = true;
 
-        await Receptor.findByIdAndUpdate({ _id: _id, 'lista_materiais.status': true }, { $set: { "lista_materiais.meta": meta } });
+        await Receptor.findByIdAndUpdate({ _id: _id }, { $set: { "lista_materiais.meta": meta, "lista_materiais.status": status } });
 
         res.json({ msg: "Atualizado!" });
     },
