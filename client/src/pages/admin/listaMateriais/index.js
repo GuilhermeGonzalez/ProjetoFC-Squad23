@@ -11,7 +11,6 @@ import { FiTrash } from 'react-icons/fi'
 export default function ListasMateriais() {
   const { idReceptor } = useParams();
   const [rows, setRows] = useState([{}]);
-  const [receptorConectado, setReceptorConectado] = useState({});
   const [newItemTitle, setNewItemTitle] = useState('');
   const [newQtdItem, setNewQtdItem] = useState(0);
   const [porcentage, setPorcentage] = useState(0);
@@ -27,7 +26,6 @@ export default function ListasMateriais() {
       setRows([]);
       let auxRow = [];
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
       await setValorArrecadado(receptor.lista_materiais.valorArrecadado)
       await setMeta(receptor.lista_materiais.meta)
       await setPorcentage(parseFloat(((receptor.lista_materiais.valorArrecadado / receptor.lista_materiais.meta) * 100).toFixed(2)))
@@ -39,7 +37,6 @@ export default function ListasMateriais() {
     }
     findAndGenerateRows();
   }, [])
-  //console.log(receptorConectado);
 
 
   async function handleRemoveItem(id) {
@@ -75,7 +72,7 @@ export default function ListasMateriais() {
 
   function habilitaEdicao() {
     setEdicao(true);
-    setDestaqueEdicao({ border: "3px #000 solid" });
+    setDestaqueEdicao({ border: "2px #000 solid" });
   }
 
   async function salvarAlteracoesVaquinha() {
@@ -88,7 +85,6 @@ export default function ListasMateriais() {
     setPorcentage(((valorArrecadado / meta) * 100).toFixed(2))
     setWidth({ width: `${porcentage}%` });
     setDestaqueEdicao({ border: "none" });
-    //document.getElementsByClassName("vaquinhaConcludedBar").setAttribute("style", `width:${porcentage}%`);
   }
 
   const BotaoSalvarVaquinha = () => (

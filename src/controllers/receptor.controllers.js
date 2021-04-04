@@ -2,10 +2,6 @@ const Receptor = require('../models/receptor.model');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-    async index(req, res) {
-        const receptor = await Receptor.find();
-        res.json(receptor);
-    },
     async create(req, res) {
         const { nome_rcpt, cidade_rcpt, uf_rcpt, email_rcpt, senha_rcpt, cpf_rcpt, historia_rcpt, data_nasc_rcpt, tipo_rcpt, nivel_rcpt, instituicao_rcpt, dados_bancarios_rcpt, lista_materiais } = req.body;//Requisições que chegam do frontend
 
@@ -42,11 +38,7 @@ module.exports = {
             return res.status(500).json({ msg: "Email não registrado!" });
         }
     },
-    async delete(req, res) {
-        const { _id } = req.params;
-        const receptor = await Receptor.findByIdAndDelete({ _id });
-        return res.json(receptor);
-    },
+
     async updateMeta(req, res) {
         const {
             _id,

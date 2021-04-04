@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ModalContext } from "../../../hooks/useModal/modalContext";
 
 import './style.css';
 import Fechar from '../../../assets/close.png';
-import DoacaoEfetuadaModal from '../DoacaoEfetuada';
 
 import api from '../../../services/api';
 

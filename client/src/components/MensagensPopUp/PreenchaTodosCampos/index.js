@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ModalContext } from "../../../hooks/useModal/modalContext";
 
 import './style.css';
@@ -7,9 +7,7 @@ import Fechar from '../../../assets/close.png';
 export default function PreenchaTodosCamposModal() {
     let { handleModal } = useContext(ModalContext);
 
-    function logout() {
-        window.location.href = "/"
-    }
+
 
     return (
         <>

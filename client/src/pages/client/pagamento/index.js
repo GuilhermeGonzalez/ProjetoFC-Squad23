@@ -12,12 +12,10 @@ import CartaoImage from '../../../assets/cartao.png';
 import PixImage from '../../../assets/pix.png';
 
 import BoletoPDF from '../../../assets/boleto.pdf';
-import { set } from 'mongoose';
 
 export default function ListasMateriaisDoacao() {
   const { idReceptor } = useParams();
   let { handleModal } = useContext(ModalContext);
-  const [receptorConectado, setReceptorConectado] = useState({});
   const [nome, setNome] = useState("");
 
   const [formaPagamento, setFormaPagamento] = useState("");
@@ -97,7 +95,6 @@ export default function ListasMateriaisDoacao() {
   useEffect(() => {
     async function findAndGenerateRows() {
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
       await setNome(receptor.nome_rcpt);
     }
     findAndGenerateRows();

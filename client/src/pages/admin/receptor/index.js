@@ -13,7 +13,6 @@ import './style.css'
 export default function ReceptorListagem() {
   let { handleModal } = useContext(ModalContext);
   const { idReceptor } = useParams();
-  const [receptorConectado, setReceptorConectado] = useState({});
   const [instituicao, setInstituicao] = useState("");
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
@@ -21,7 +20,6 @@ export default function ReceptorListagem() {
   const [uf, setUf] = useState("");
   const [historia, setHistoria] = useState("");
 
-  const [dadosBancarios, setDadosBancarios] = useState({});
   const [banco, setBanco] = useState("");
   const [agencia, setAgencia] = useState(0);
   const [conta_corrente, setContaCorrente] = useState("");
@@ -35,7 +33,6 @@ export default function ReceptorListagem() {
   useEffect(() => {
     async function findInfo() {
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
 
       await setInstituicao(receptor.instituicao_rcpt);
       await setNome(receptor.nome_rcpt);
@@ -53,12 +50,12 @@ export default function ReceptorListagem() {
 
   function habilitaEdicaoHistoria() {
     setEdicaoHistoria(true);
-    setDestaqueEdicaoHistoria({ border: "3px #000 solid" });
+    setDestaqueEdicaoHistoria({ border: "2px #000 solid" });
   }
 
   function habilitaEdicaoBanco() {
     setEdicaoBanco(true);
-    setDestaqueEdicaoBanco({ border: "3px #000 solid" });
+    setDestaqueEdicaoBanco({ border: "2px #000 solid" });
   }
 
   async function salvarAlteracoesHistoria() {

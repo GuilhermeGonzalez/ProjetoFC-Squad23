@@ -10,9 +10,6 @@ export default function ListasMateriaisDoacao() {
   const { idReceptor } = useParams();
 
   const [rows, setRows] = useState([{}]);
-  const [receptorConectado, setReceptorConectado] = useState({});
-  const [newItemTitle, setNewItemTitle] = useState('');
-  const [newQtdItem, setNewQtdItem] = useState(0);
   const [porcentage, setPorcentage] = useState(0);
   const [meta, setMeta] = useState(0);
   const [valorArrecadado, setValorArrecadado] = useState(0);
@@ -29,7 +26,6 @@ export default function ListasMateriaisDoacao() {
       setRows([]);
       let auxRow = [];
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
       await setValorArrecadado(receptor.lista_materiais.valorArrecadado)
       await setMeta(receptor.lista_materiais.meta)
       await setPorcentage(parseFloat(((receptor.lista_materiais.valorArrecadado / receptor.lista_materiais.meta) * 100).toFixed(2)))
