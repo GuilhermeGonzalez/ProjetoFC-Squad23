@@ -2,7 +2,7 @@
   "name": "projetofc-squad23",
   "version": "1.0.0",
   "description": "projeto fcamara squad 23",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "client": "cd client && npm start",
     "build":"cd client && npm run build",
