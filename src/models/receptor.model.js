@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-
 const DataSchema = new mongoose.Schema({
     nome_rcpt: String,
     cidade_rcpt: String,

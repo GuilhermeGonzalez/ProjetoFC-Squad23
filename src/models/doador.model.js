@@ -2,20 +2,12 @@ const mongoose = require('mongoose');
 
 
 const DataSchema = new mongoose.Schema({
-    nome_doador:String, 
-    cpf_doador:String, 
+    nome_doador:String,  
     email_doador:String,
-    dataNasc_doador: Date,
-    tel_doador: String,
     doacao: [{
         valor_doacao: Number,
-        mensagem_doacao: String,
-        forma_pagamento:[{
-            formato_escolhido:String,
-            desc_geral: String, //Independente do formato escolhido será salvo as informações solicitadas para X forma
-        }],
+        forma_pagamento: String,
         id_receptor: String,//Qual o receptor referente a lista
-        id_listaM_doado: String,//Qual a lista escolhida
     }]
 }, {
     timestamp:true

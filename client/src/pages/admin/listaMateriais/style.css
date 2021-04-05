@@ -20,7 +20,7 @@
   padding: 40px 20px;
 
   width: 80vw;
-  height: 70vh;
+  height: auto;
   margin-top: 50px;
   margin-bottom: 60px;
 
@@ -35,6 +35,7 @@
   padding: 5px 20px;
   border-radius: 10px;
   width: 35vw;
+  height: auto;
 
   -webkit-box-shadow: 3px 3px 5px 3px #ccc;
   -moz-box-shadow: 3px 3px 5px 3px #ccc;
@@ -45,7 +46,7 @@
 }
 
 .vaquinha {
-  height: 350px;
+  height: 320px;
 }
 
 .tituloCard {
@@ -140,9 +141,6 @@
   align-items: center;
 }
 
-.listaMaterialCard .itemsCardLista ul li button {
-}
-
 /* Style the "Add"& "Remove" button */
 .addBtn {
   padding: 10px;
@@ -181,6 +179,13 @@
 }
 
 /*PARTE DA VAQUINHA*/
+.vaquinha.card {
+  height: 300px;
+}
+.editarVaquinha {
+  cursor: pointer;
+}
+
 .textoMeioVaquinha {
   display: flex;
   flex-direction: row;
@@ -216,7 +221,7 @@
 }
 
 .vaquinhaPorcentageBar {
-  width: 230px;
+  width: 75%;
   height: 25px;
   border-radius: 15px;
   background-color: #e5e5e5;
@@ -225,8 +230,38 @@
 .vaquinhaConcludedBar {
   top: 0;
   left: 0;
-  width: 150px;
+  width: 0%;
   height: 25px;
   border-radius: 15px;
   background-color: var(--corQuatro);
+}
+
+.vaquinha .salvarVaquinhaDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.vaquinha .salvarVaquinhaDiv .botaoSalvarVaquinha {
+  width: 100px;
+  visibility: visible;
+}
+
+@media (max-width: 600px) {
+  .contentListaMateriais {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+    height: 650px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    width: 400px;
+    margin: 20px;
+    height: 60%;
+  }
 }

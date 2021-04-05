@@ -1,0 +1,85 @@
+/*MODAL*/
+
+.modal-overlayPopUp {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
+}
+.modal-overlayPopUp.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalPopUp {
+  background: var(--branco);
+  padding: 2.4rem;
+  color: var(--corUm);
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+  -moz-box-shadow: 3px 3px 5px 3px #ccc;
+  box-shadow: 3px 3px 5px 3px #ccc;
+}
+.modalPopUp .closeModalPopUp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -20px;
+}
+.closeModalPopUp img {
+  width: 25px;
+  height: 25px;
+}
+
+.closeModalPopUp img:hover {
+  cursor: pointer;
+}
+
+.formPopUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 380px;
+  width: 400px;
+}
+
+.modalPopUp .popUpMessage {
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.modalPopUp .popUpButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalPopUp .popUpButton button {
+  width: 120px;
+}
+
+.modalPopUp .popUpButton button:nth-child(2) {
+  background: var(--branco);
+  color: var(--corQuatro);
+  border: 2px solid var(--corQuatro);
+}

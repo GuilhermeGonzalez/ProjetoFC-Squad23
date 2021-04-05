@@ -4,13 +4,26 @@ import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
 import Fechar from '../../assets/close.png';
 import CadastroModal from '../CadastroModal';
+import api from "../../services/api";
 
 export default function LoginModal() {
     let { handleModal } = useContext(ModalContext);
+    const [email_rcpt, setEmail] = useState('');
+    const [senha_rcpt, setSenha] = useState('');
 
     function changeModal() {
         handleModal();
         handleModal(<CadastroModal />);
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const data = { email_rcpt, senha_rcpt }
+        await api.post(`/api/receptor.login/`, data).then(res => {
+            window.location.href = `/login/${res.data.id}/admin/receptor`;
+        }).catch(err => {
+            alert("Senha ou email invalido!")
+        });
     }
 
     return (
@@ -22,13 +35,13 @@ export default function LoginModal() {
                     </div>
                     <div className="formLogin">
                         <h2>Login</h2>
-                        <form action="" onSubmit="">
+                        <form>
                             <label htmlFor="">E-mail</label>
-                            <input type="email" placeholder="Digite seu e-mail" />
+                            <input value={email_rcpt} onChange={e => setEmail(e.target.value)} type="email" placeholder="Digite seu e-mail" />
                             <label htmlFor="">Senha</label>
-                            <input type="password" placeholder="Digite sua senha" />
+                            <input value={senha_rcpt} onChange={e => setSenha(e.target.value)} type="password" placeholder="Digite sua senha" />
 
-                            <button>Entrar</button>
+                            <button onClick={handleSubmit}>Entrar</button>
                         </form>
 
                         <p>Ainda não tem uma conta? <a onClick={changeModal}>Cadastra-se</a></p>

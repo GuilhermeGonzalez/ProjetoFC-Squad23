@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../../services/api'
+import { ModalContext } from "../../../hooks/useModal/modalContext";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ConcluirModal from '../../../components/MensagensPopUp/TemCertezaAcao';
+import PreenchaTodosCamposModal from '../../../components/MensagensPopUp/PreenchaTodosCampos';
 import "./style.css";
 
 import CartaoImage from '../../../assets/cartao.png';
@@ -12,9 +15,12 @@ import BoletoPDF from '../../../assets/boleto.pdf';
 
 export default function ListasMateriaisDoacao() {
   const { idReceptor } = useParams();
-
-  const [receptorConectado, setReceptorConectado] = useState({});
+  let { handleModal } = useContext(ModalContext);
   const [nome, setNome] = useState("");
+
+  const [formaPagamento, setFormaPagamento] = useState("");
+
+
 
   const boleto = `
     <div id="centerInfo"> 
@@ -59,16 +65,36 @@ export default function ListasMateriaisDoacao() {
   `
 
 
-
+  function whichModalOpen() {
+    if (
+      document.getElementById("valueField").value <= 0 ||
+      document.getElementById("nameField").value == '' ||
+      document.getElementById("emailField").value == ''
+    ) {
+      handleModal(<PreenchaTodosCamposModal />)
+    }
+    else {
+      let info = {
+        nome_doador: document.getElementById("nameField").value,
+        email_doador: document.getElementById("emailField").value,
+        doacao: {
+          valor_doacao: document.getElementById("valueField").value,
+          forma_pagamento: formaPagamento,
+          id_receptor: idReceptor
+        }
+      }
+      handleModal(<ConcluirModal info={info} />)
+    }
+  }
 
   function logout() {
-    window.location.href = "/"
+    window.location.href = "/";
   }
+
 
   useEffect(() => {
     async function findAndGenerateRows() {
       const { data: receptor } = await api.get(`/api/receptor.details/${idReceptor}`);
-      await setReceptorConectado(receptor);
       await setNome(receptor.nome_rcpt);
     }
     findAndGenerateRows();
@@ -77,12 +103,15 @@ export default function ListasMateriaisDoacao() {
   function trocaPagamento() {
     const opcao = document.querySelector('input[name="pag"]:checked').value;
     if (opcao == 'boleto') {
+      setFormaPagamento('boleto');
       document.getElementById("formaPagamentoSelecionada").innerHTML = boleto;
     }
     else if (opcao == 'pix') {
+      setFormaPagamento('pix');
       document.getElementById("formaPagamentoSelecionada").innerHTML = pix;
     }
     else if (opcao == 'cartaoDeCredito') {
+      setFormaPagamento('cartao de credito');
       document.getElementById("formaPagamentoSelecionada").innerHTML = cartaoDeCredito;
     }
     else {
@@ -112,12 +141,12 @@ export default function ListasMateriaisDoacao() {
           <div className="contentPagamento">
             <div className="lineContent">
               <label>Valor da contribuição:</label>
-              <input className="inputField" type="number" placeholder="Digite o valor da sua contribuição em reais." />
+              <input id="valueField" className="inputField" type="number" placeholder="Digite o valor da sua contribuição em reais." />
             </div>
             <div className="anonimoOuNao">
               <div className="lineContent">
                 <label>Nome completo:</label>
-                <input className="inputField" type="text" placeholder="Digite seu nome completo." />
+                <input id="nameField" className="inputField" type="text" placeholder="Digite seu nome completo." />
               </div>
               <div className="anonimoContent">
                 <input type="radio" className="checkbox" name="anonimo" value="Anonimo" />
@@ -126,7 +155,7 @@ export default function ListasMateriaisDoacao() {
             </div>
             <div id=" emailContent" className="lineContent">
               <label>E-mail:</label>
-              <input className="inputField" type="email" placeholder="Digite seu e-mail." />
+              <input id="emailField" className="inputField" type="email" placeholder="Digite seu e-mail." />
             </div>
             <div className="meioPagamento">
               <p>Meio de pagamento: </p>
@@ -143,7 +172,7 @@ export default function ListasMateriaisDoacao() {
             </div>
 
             <div className="contribuirPagamento">
-              <button>Contribuir</button>
+              <button onClick={whichModalOpen}>Contribuir</button>
             </div>
           </div>
 

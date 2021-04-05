@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import imagemAuxiliar from '.././../assets/caixaVazia.png';
 import { useParams } from 'react-router-dom';
 import { ModalContext } from "../../hooks/useModal/modalContext";
 import './style.css';
 
 import Logo from '../../assets/logo.png';
+
+import SairModal from '../MensagensPopUp/TemCertezaSair';
 
 export default function Header() {
     let { handleModal } = useContext(ModalContext);
@@ -13,10 +14,6 @@ export default function Header() {
 
     let clickedLista = url.includes("listaMateriais") ? "clicked" : "";
     let clickedReceptor = url.includes("receptor") ? "clicked" : "";
-
-    function logout() {
-        window.location.href = "/"
-    }
 
 
     return (
@@ -30,7 +27,7 @@ export default function Header() {
                 <a href={`/login/${idReceptor}/admin/receptor`} id="perfil" className={clickedReceptor}>Perfil</a>
             </div>
             <div>
-                <button onClick={logout}>Sair</button>
+                <button onClick={() => handleModal(<SairModal />)}>Sair</button>
             </div>
         </div>
     );

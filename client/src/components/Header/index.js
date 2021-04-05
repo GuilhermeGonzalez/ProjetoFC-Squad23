@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import imagemAuxiliar from '.././../assets/caixaVazia.png';
 import LoginModal from '../LoginModal';
 import CadastroModal from '../CadastroModal';
 import { ModalContext } from "../../hooks/useModal/modalContext";
@@ -16,7 +15,7 @@ export default function Header() {
                 <p>Donate It!</p>
             </div>
             <div>
-                <a onClick={() => handleModal(<CadastroModal />)}>Cadastre-se</a>
+                <span onClick={() => handleModal(<CadastroModal />)}>Cadastre-se</span>
                 <button onClick={() => handleModal(<LoginModal />)}>Login</button>
             </div>
         </div>
