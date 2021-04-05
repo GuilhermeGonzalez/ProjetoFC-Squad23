@@ -150,7 +150,7 @@ export default function Home() {
                   <div className="search-porcentContainer">
                     <p>{porcentage} %</p>
                     <div className="porcentageBar">
-                      <div className="concludedBar"></div>
+                      <div style={{width: porcentage+"%"}} className="concludedBar"></div>
                     </div>
                   </div>
                 </div>
