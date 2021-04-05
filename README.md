@@ -60,7 +60,7 @@ npm install react-scripts
 npm run dev
 ```
 ##### Observação:
-###### Para testes da API na pasta raiz encontra-se o arquivo .JSON exportado do Insomnia(Doc-Api_2021-04-04.json)
+###### Para testes da API na pasta raiz encontra-se o arquivo .JSON exportado do Insomnia(Doc-Api_2021-04-05.json)
 
 <hr/>
 
