@@ -164,3 +164,22 @@
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 600px) {
+  .headerPage .voltarInicio {
+    display: none;
+  }
+
+  .anonimoContent {
+    display: none;
+  }
+
+  #emailContent {
+    width: 80%;
+  }
+
+  .meioPagamento {
+    display: flex;
+    flex-direction: column;
+  }
+}

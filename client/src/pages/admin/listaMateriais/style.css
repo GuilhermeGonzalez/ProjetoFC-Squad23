@@ -247,3 +247,21 @@
   width: 100px;
   visibility: visible;
 }
+
+@media (max-width: 600px) {
+  .contentListaMateriais {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+    height: 650px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    width: 400px;
+    margin: 20px;
+    height: 60%;
+  }
+}

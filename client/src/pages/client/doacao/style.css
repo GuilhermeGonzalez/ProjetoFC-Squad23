@@ -182,3 +182,30 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 600px) {
+  .contentDoacao {
+    display: flex;
+    flex-direction: column;
+    height: 1200px;
+    width: 500px;
+  }
+
+  .contentLeft .cardLeft {
+    background-image: var(--branco);
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 400px;
+    height: 210px;
+    margin-bottom: 30px;
+
+    -webkit-box-shadow: 3px 3px 5px 3px #ccc;
+    -moz-box-shadow: 3px 3px 5px 3px #ccc;
+    box-shadow: 3px 3px 6px 6px #ccc;
+  }
+
+  .contentRight .cardRight {
+    width: 400px;
+    height: 300px;
+  }
+}
