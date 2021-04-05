@@ -8,15 +8,15 @@ const routes = require('./src/routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/projetofcsquad23', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/projetofcsquad23', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
-}, function(err){
-    if(err){
+}, function (err) {
+    if (err) {
         console.log(err);
     }
-    else{
+    else {
         console.log("MongoDB CONECTADO com sucesso!");
     }
 });
@@ -27,6 +27,10 @@ app.use(express.json());//Quando necessitamos usar JSON para se comunicar front 
 
 app.use(routes);
 
-app.listen(port, function(){
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
+
+app.listen(port, function () {
     console.log(`Server runing on port ${port}`)
 })
