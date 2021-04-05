@@ -25,6 +25,13 @@ O doador basicamente irá entrar no site filtrar para qual doação ele deseja c
 
 <hr/>
 
+#### Link utéis
+##### [Protótipo no Figma](https://www.figma.com/file/BgbgJqLWRKqvTffiUXLiS2/Programa-de-Formação-FCamara)
+##### [Artigo no Medium](https://angelalmenezes.medium.com/donate-it-a-plataforma-web-que-simplifica-a-doa%C3%A7%C3%A3o-de-material-escolar-38bc6dd6df28)
+
+
+<hr/>
+
 #### Como instalar
 Caso você vá utilizar localmente o projeto, é interessante ter o [MongoDB Compass](https://www.mongodb.com/try/download/compass) em seu computador, e que inicie uma sessão localmente na porta 27017
 
@@ -50,6 +57,8 @@ npm install react-scripts
 ```
 npm run dev
 ```
+##### Observação:
+###### Para testes da API na pasta raiz encontra-se o arquivo .JSON exportado do Insomnia(Doc-Api_2021-04-04.json)
 
 <hr/>
 
