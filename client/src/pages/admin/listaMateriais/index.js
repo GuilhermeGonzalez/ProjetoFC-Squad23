@@ -155,7 +155,7 @@ export default function ListasMateriais() {
             <div className="vaquinhaPorcentage">
               <p>{porcentage} %</p>
               <div className="vaquinhaPorcentageBar">
-                <div className="vaquinhaConcludedBar" style={width}></div>
+                <div className="vaquinhaConcludedBar" style={{ width: porcentage + "%" }}></div>
               </div>
             </div>
             <div className="salvarVaquinhaDiv">

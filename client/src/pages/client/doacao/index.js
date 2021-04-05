@@ -123,7 +123,7 @@ export default function ListasMateriaisDoacao() {
               <div className="vaquinhaDoacaoPorcentage">
                 <p>{porcentage} %</p>
                 <div className="vaquinhaDoacaoPorcentageBar">
-                  <div className="vaquinhaDoacaoConcludedBar"></div>
+                  <div style={{ width: porcentage + "%" }} className="vaquinhaDoacaoConcludedBar"></div>
                 </div>
               </div>
               <div className="botaoContribuir">

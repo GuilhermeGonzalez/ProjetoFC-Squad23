@@ -8,7 +8,7 @@ const routes = require('./src/routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user:user@projetofcsquad23.8imky.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/projetofcsquad23', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
