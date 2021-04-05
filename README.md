@@ -9,7 +9,8 @@ Integrantes: [Guilherme Camargo Gonzalez](https://github.com/GuilhermeGonzalez) 
 [João Paulo](https://github.com/joaupaulo) |
 [Matheus Queiroz](https://github.com/matheus-92) |
 [Tassio Nascimento Santos](https://github.com/tassiosantos) |
-[Angela de Lima Menezes](https://www.linkedin.com/in/angela-de-lima-menezes/)
+[Angela de Lima Menezes](https://www.linkedin.com/in/angela-de-lima-menezes/) |
+Alessandra Pereira
 
 ### Problemática
 "Nós sabemos o quanto é complicado para os pais
@@ -38,7 +39,7 @@ Caso você vá utilizar localmente o projeto, é interessante ter o [MongoDB Com
 
 ##### Clonar o repositório
 ```
-https://github.com/GuilhermeGonzalez/ProjetoFC-Squad23.git
+git clone https://github.com/GuilhermeGonzalez/ProjetoFC-Squad23.git
 ```
 ##### Baixar as dependências do front-end
 ###### Navegue até o diretório front-end e baixe as dependências:
